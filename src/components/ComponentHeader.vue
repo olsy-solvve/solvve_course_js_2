@@ -1,21 +1,10 @@
 <script>
 export default {
   data() {
-    return {
-      menuItems: [
-        { title: "Home", link: "/", icon: "" },
-        { title: "My Dashboard", link: "/dashbord", icon: "" },
-        { title: "Shop", link: "/shop", icon: "" },
-      ],
-      count: 0,
-    };
+    return {};
   },
 
-  mounted() {
-    setTimeout(() => {
-      this.menuItems.push({ title: "Shop2", link: "/shop2", icon: "" });
-    }, 5000);
-  },
+  mounted() {},
 };
 </script>
 
