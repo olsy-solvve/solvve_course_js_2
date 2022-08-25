@@ -13,4 +13,3 @@ import PrimeVue from "primevue/config";
 import "./assets/main.css";
 
 app.use(PrimeVue);
-
