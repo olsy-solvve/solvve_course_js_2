@@ -1,47 +1,145 @@
+
 <template>
-  <div class="flex justify-content-center" data-v-e2d81ae4="">
-    <div class="card" data-v-e2d81ae4="">
-      <h2 class="text-center" data-v-e2d81ae4="">Authorization</h2>
-      <form class="p-fluid" data-v-e2d81ae4="">
-    
-        <div class="field" data-v-e2d81ae4="">
-          <div class="p-float-label p-input-icon-right" data-v-e2d81ae4="">
-            <i class="pi pi-envelope" data-v-e2d81ae4=""></i>
-            <input class="p-inputtext p-component" id="email" aria-describedby="email-error" data-v-e2d81ae4="">
-            <label for="email" class="" data-v-e2d81ae4="">Email*</label>
+  <div class="form-demo">
+
+    <div class="flex justify-content-center">
+      <div class="card">
+        <h2 class="text-center">Authorization</h2>
+        <form @submit.prevent="handleSubmit(!v$.$invalid)" class="p-fluid">
+
+          <div class="field">
+            <div class="p-float-label p-input-icon-right">
+              <i class="pi pi-envelope" />
+              <InputText id="email" v-model="v$.email.$model" :class="{ 'p-invalid': v$.email.$invalid && submitted }"
+                aria-describedby="email-error" />
+              <label for="email" :class="{ 'p-error': v$.email.$invalid && submitted }">Email*</label>
+            </div>
+            <span v-if="v$.email.$error && submitted">
+              <span id="email-error" v-for="(error, index) of v$.email.$errors" :key="index">
+                <small class="p-error">{{ error.$message }}</small>
+              </span>
+            </span>
+            <small v-else-if="(v$.email.$invalid && submitted) || v$.email.$pending.$response" class="p-error">{{
+                v$.email.required.$message.replace('Value', 'Email')
+            }}</small>
           </div>
-        </div>
-
-        <div class="field" data-v-e2d81ae4="">
-          <div class="p-float-label" data-v-e2d81ae4="">
-            <div class="p-password p-component p-inputwrapper p-input-icon-right" id="password" data-v-e2d81ae4="">
-              <input class="p-inputtext p-component" type="password" aria-controls="pv_id_3_panel" aria-expanded="false"
-                aria-haspopup="true">
-              <i class="pi pi-eye"></i>
-              <span class="p-hidden-accessible" aria-live="polite">Enter a password</span>
-            </div><label for="password" class="" data-v-e2d81ae4="">Password*</label>
+          <div class="field">
+            <div class="p-float-label">
+              <Password id="password" v-model="v$.password.$model"
+                :class="{ 'p-invalid': v$.password.$invalid && submitted }" toggleMask>
+                <template #header>
+                  <h6>Pick a password</h6>
+                </template>
+                <template #footer="sp">
+                  {{ sp.level }}
+                  <Divider />
+                  <p class="mt-2">Suggestions</p>
+                  <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+                    <li>At least one lowercase</li>
+                    <li>At least one uppercase</li>
+                    <li>At least one numeric</li>
+                    <li>Minimum 8 characters</li>
+                  </ul>
+                </template>
+              </Password>
+              <label for="password" :class="{ 'p-error': v$.password.$invalid && submitted }">Password*</label>
+            </div>
+            <small v-if="(v$.password.$invalid && submitted) || v$.password.$pending.$response" class="p-error">{{
+                v$.password.required.$message.replace('Value', 'Password')
+            }}</small>
           </div>
-        </div>
-        
-        <button class="p-button p-component mt-2" type="submit" aria-label="Submit" data-v-e2d81ae4="">
-          <span class="p-button-label">Login</span>
-          <span class="p-ink" role="presentation"></span>
-        </button>
+          <div class="field-checkbox">
+            <Checkbox id="accept" name="accept" value="Accept" v-model="v$.accept.$model"
+              :class="{ 'p-invalid': v$.accept.$invalid && submitted }" />
+            <label for="accept" :class="{ 'p-error': v$.accept.$invalid && submitted }">A new user</label>
+          </div>
+          <Button type="submit" label="Submit" class="mt-2" />
+          <Button label="Registration" class="p-button-text" />
 
-        <button class="p-button p-component mt-2" type="submit" aria-label="Submit" data-v-e2d81ae4="">
-          <span class="p-button-label">Registration</span>
-          <span class="p-ink" role="presentation"></span>
-        </button>
-
-      </form>
+        </form>
+      </div>
     </div>
-    </div>
+  </div>
 </template>
 
 <script>
+import { email, required } from "@vuelidate/validators";
+import { useVuelidate } from "@vuelidate/core";
+
 export default {
-  name: "Auth",
-};
+  setup: () => ({ v$: useVuelidate() }),
+  data() {
+    return {
+      email: '',
+      password: '',
+      accept: null,
+      submitted: false,
+      showMessage: false
+    }
+  },
+  countryService: null,
+  validations() {
+    return {
+
+      email: {
+        required,
+        email
+      },
+      password: {
+        required
+      },
+      accept: {
+        required
+      }
+    }
+  },
+
+  methods: {
+    handleSubmit(isFormValid) {
+      this.submitted = true;
+
+      if (!isFormValid) {
+        return;
+      }
+
+      this.toggleDialog();
+    },
+    toggleDialog() {
+      this.showMessage = !this.showMessage;
+
+      if (!this.showMessage) {
+        this.resetForm();
+      }
+    },
+    resetForm() {
+
+      this.email = '';
+      this.password = '';
+      this.accept = null;
+      this.submitted = false;
+    }
+  }
+}
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.form-demo {
+  .card {
+    min-width: 450px;
+
+    form {
+      margin-top: 2rem;
+    }
+
+    .field {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  @media screen and (max-width: 960px) {
+    .card {
+      width: 80%;
+    }
+  }
+}
+</style>
