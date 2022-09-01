@@ -25,9 +25,7 @@ export default {
       ]
     }
   },
-  mounted() {
-  },
-  components: { Menubar,  InputText, Chip},
+  components: { Menubar, InputText, Chip},
 };
 </script>
 
@@ -35,12 +33,12 @@ export default {
   <Menubar :model="menuItems">
     <template #start>
       <Chip label="My Games" icon="pi pi-tablet" />
-      <InputText placeholder="Search" type="text" />
     </template>
     <router-link :to="item.to" custom v-slot="{href, route, navigate, isActive, isExactActive}">
       <a :href="href" @click="navigate" :class="{'active-link': isActive, 'active-link-exact': isExactActive}">{{route.fullPath}}</a>
     </router-link>
     <template #end>
+      <InputText placeholder="Search" type="text" />
     </template>
   </Menubar>
 <!--  <RouterLink to="/auth">gjhgj</RouterLink>-->
