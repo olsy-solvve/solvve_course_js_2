@@ -4,6 +4,8 @@ import GameList from "../views/GameList.vue";
 import GameItem from "../views/GameItem.vue";
 import UserProfile from "../views/UserProfile.vue";
 import RegisterForm from "../views/RegisterForm.vue";
+import MyStatistics from "../views/MyStatistics.vue";
+
 const index = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -31,6 +33,11 @@ const index = createRouter({
       path: "/profile",
       name: "profile",
       component: UserProfile,
+    },
+    {
+      path: "/statistic",
+      name: "statistic",
+      component: MyStatistics,
     },
   ],
 });

@@ -1,29 +1,52 @@
 <script>
+import Menubar from "primevue/menubar";
+import InputText from 'primevue/inputtext';
+import Chip from 'primevue/chip';
+
 export default {
   data() {
-    return {};
+    return {
+      menuItems: [
+        {
+          label: "Statistics",
+          icon: "pi pi-fw pi-calendar",
+          to: "/statistic",
+        },
+        {
+          label: "Nickname",
+          icon: "pi pi-fw pi-user",
+          to: "/profile",
+        },
+        {
+          label: "Quit",
+          icon: "pi pi-fw pi-power-off",
+          to: "/auth",
+        }
+      ]
+    }
   },
-
-  mounted() {},
+  mounted() {
+  },
+  components: { Menubar,  InputText, Chip},
 };
 </script>
 
 <template>
-  <header>
-    <nav>
-      <ul>
-        <li v-for="(item, index) in menuItems" :key="index" @click="count++">
-          {{ item.title }}
-        </li>
-      </ul>
-    </nav>
+  <Menubar :model="menuItems">
+    <template #start>
+      <Chip label="My Games" icon="pi pi-tablet" />
+      <InputText placeholder="Search" type="text" />
+    </template>
+    <router-link :to="item.to" custom v-slot="{href, route, navigate, isActive, isExactActive}">
+      <a :href="href" @click="navigate" :class="{'active-link': isActive, 'active-link-exact': isExactActive}">{{route.fullPath}}</a>
+    </router-link>
+    <template #end>
+    </template>
+  </Menubar>
+<!--  <RouterLink to="/auth">gjhgj</RouterLink>-->
+  <router-link to="/auth">Go to Home</router-link>
 
-    <b>{{ count }}</b>
-  </header>
 </template>
 
-<style scoped>
-ul {
-  background-color: red;
-}
-</style>
+
+<style></style>
