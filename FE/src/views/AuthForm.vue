@@ -144,6 +144,8 @@ export default {
         password: this.password,
         email: this.email,
       });
+      let redirectURL = '/success';
+      this.$router.push(redirectURL);
     },
     toggleDialog() {
       this.showMessage = !this.showMessage;
