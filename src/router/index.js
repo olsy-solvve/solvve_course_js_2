@@ -4,6 +4,8 @@ import GameList from "../views/GameList.vue";
 import GameItem from "../views/GameItem.vue";
 import UserProfile from "../views/UserProfile.vue";
 import RegisterForm from "../views/RegisterForm.vue";
+import PageNotFound from "../views/PageNotFound.vue";
+
 const index = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -32,6 +34,11 @@ const index = createRouter({
       name: "profile",
       component: UserProfile,
     },
+    {
+      path: "/*",
+      name: "404",
+      component: PageNotFound,
+    },    
   ],
 });
 
