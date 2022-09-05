@@ -26,3 +26,7 @@ coverage
 *.njsproj
 *.sln
 *.sw?
+
+ignores (string[])
+
+vue/multi-word-component-names
