@@ -4,9 +4,12 @@
     <p><strong>Mistakes:</strong> {{ mistakes }}</p>
     <p><strong>Numbers Remaining:</strong></p>
     <div class="numbers-remaining">
-      <span v-for="number in numbersRemaining" :class="number.eliminated && 'eliminated'" :key="number.value">{{
-          number.value
-      }}</span>
+      <span
+        v-for="number in numbersRemaining"
+        :class="number.eliminated && 'eliminated'"
+        :key="number.value"
+        >{{ number.value }}</span
+      >
     </div>
   </div>
 </template>

@@ -1,15 +1,25 @@
 <template>
-  <div ref="cell" class="cell" :class="[
-    rowClass,
-    columnClass,
-    {
-      userInput,
-      isHighlighted,
-      hasError,
-      isSimilar,
-    },
-  ]" @focus="handleClick" @keydown="handleKeydown" @keydown.up="moveFocus(-9)" @keydown.down="moveFocus(9)"
-    @keydown.left="moveFocus(-1)" @keydown.right="moveFocus(1)" tabIndex="0">
+  <div
+    ref="cell"
+    class="cell"
+    :class="[
+      rowClass,
+      columnClass,
+      {
+        userInput,
+        isHighlighted,
+        hasError,
+        isSimilar,
+      },
+    ]"
+    @focus="handleClick"
+    @keydown="handleKeydown"
+    @keydown.up="moveFocus(-9)"
+    @keydown.down="moveFocus(9)"
+    @keydown.left="moveFocus(-1)"
+    @keydown.right="moveFocus(1)"
+    tabIndex="0"
+  >
     <span>{{ value }}</span>
   </div>
 </template>

@@ -1,32 +1,49 @@
-
 <template>
   <div class="form-demo">
-
     <div class="flex justify-content-center">
       <div class="card">
         <h2 class="text-center">Authorization</h2>
         <form @submit.prevent="handleSubmit(!v$.$invalid)" class="p-fluid">
-
           <div class="field">
             <div class="p-float-label p-input-icon-right">
               <i class="pi pi-envelope" />
-              <InputText id="email" v-model="v$.email.$model" :class="{ 'p-invalid': v$.email.$invalid && submitted }"
-                aria-describedby="email-error" />
-              <label for="email" :class="{ 'p-error': v$.email.$invalid && submitted }">Email*</label>
+              <InputText
+                id="email"
+                v-model="v$.email.$model"
+                :class="{ 'p-invalid': v$.email.$invalid && submitted }"
+                aria-describedby="email-error"
+              />
+              <label
+                for="email"
+                :class="{ 'p-error': v$.email.$invalid && submitted }"
+                >Email*</label
+              >
             </div>
             <span v-if="v$.email.$error && submitted">
-              <span id="email-error" v-for="(error, index) of v$.email.$errors" :key="index">
+              <span
+                id="email-error"
+                v-for="(error, index) of v$.email.$errors"
+                :key="index"
+              >
                 <small class="p-error">{{ error.$message }}</small>
               </span>
             </span>
-            <small v-else-if="(v$.email.$invalid && submitted) || v$.email.$pending.$response" class="p-error">{{
-                v$.email.required.$message.replace('Value', 'Email')
-            }}</small>
+            <small
+              v-else-if="
+                (v$.email.$invalid && submitted) || v$.email.$pending.$response
+              "
+              class="p-error"
+              >{{ v$.email.required.$message.replace("Value", "Email") }}</small
+            >
           </div>
           <div class="field">
             <div class="p-float-label">
-              <Password id="password" v-model="v$.password.$model"
-                :class="{ 'p-invalid': v$.password.$invalid && submitted }" toggleMask>
+              <Password
+                id="password"
+                v-model="v$.password.$model"
+                :class="{ 'p-invalid': v$.password.$invalid && submitted }"
+                toggleMask
+              >
                 <template #header>
                   <h6>Pick a password</h6>
                 </template>
@@ -42,20 +59,39 @@
                   </ul>
                 </template>
               </Password>
-              <label for="password" :class="{ 'p-error': v$.password.$invalid && submitted }">Password*</label>
+              <label
+                for="password"
+                :class="{ 'p-error': v$.password.$invalid && submitted }"
+                >Password*</label
+              >
             </div>
-            <small v-if="(v$.password.$invalid && submitted) || v$.password.$pending.$response" class="p-error">{{
-                v$.password.required.$message.replace('Value', 'Password')
-            }}</small>
+            <small
+              v-if="
+                (v$.password.$invalid && submitted) ||
+                v$.password.$pending.$response
+              "
+              class="p-error"
+              >{{
+                v$.password.required.$message.replace("Value", "Password")
+              }}</small
+            >
           </div>
           <div class="field-checkbox">
-            <Checkbox id="accept" name="accept" value="Accept" v-model="v$.accept.$model"
-              :class="{ 'p-invalid': v$.accept.$invalid && submitted }" />
-            <label for="accept" :class="{ 'p-error': v$.accept.$invalid && submitted }">A new user</label>
+            <Checkbox
+              id="accept"
+              name="accept"
+              value="Accept"
+              v-model="v$.accept.$model"
+              :class="{ 'p-invalid': v$.accept.$invalid && submitted }"
+            />
+            <label
+              for="accept"
+              :class="{ 'p-error': v$.accept.$invalid && submitted }"
+              >A new user</label
+            >
           </div>
           <Button type="submit" label="Submit" class="mt-2" />
           <Button label="Registration" class="p-button-text" />
-
         </form>
       </div>
     </div>
@@ -70,28 +106,27 @@ export default {
   setup: () => ({ v$: useVuelidate() }),
   data() {
     return {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
       accept: null,
       submitted: false,
-      showMessage: false
-    }
+      showMessage: false,
+    };
   },
   countryService: null,
   validations() {
     return {
-
       email: {
         required,
-        email
+        email,
       },
       password: {
-        required
+        required,
       },
       accept: {
-        required
-      }
-    }
+        required,
+      },
+    };
   },
 
   methods: {
@@ -112,14 +147,13 @@ export default {
       }
     },
     resetForm() {
-
-      this.email = '';
-      this.password = '';
+      this.email = "";
+      this.password = "";
       this.accept = null;
       this.submitted = false;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

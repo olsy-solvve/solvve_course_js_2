@@ -38,7 +38,7 @@ const index = createRouter({
       path: "/*",
       name: "404",
       component: PageNotFound,
-    },    
+    },
   ],
 });
 

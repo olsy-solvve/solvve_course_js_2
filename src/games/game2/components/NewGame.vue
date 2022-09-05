@@ -1,6 +1,8 @@
 <template>
   <div class="new-game">
-    <button v-if="!selectDifficulty" @click="selectDifficulty = true">New Game</button>
+    <button v-if="!selectDifficulty" @click="selectDifficulty = true">
+      New Game
+    </button>
     <div class="button-group" v-if="selectDifficulty">
       <button
         v-for="option in difficulty.options"
