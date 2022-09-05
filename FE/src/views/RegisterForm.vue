@@ -215,17 +215,6 @@ export default {
       this.submitted = false;
     },
   },
-  watch: {
-    email(value) {
-      this.email = value;
-    },
-    name(value) {
-      this.name = value;
-    },
-    password(value) {
-      this.password = value;
-    },
-  },
 };
 </script>
 

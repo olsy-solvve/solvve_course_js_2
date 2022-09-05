@@ -36,14 +36,14 @@ const index = createRouter({
       component: UserProfile,
     },
     {
+      path: "/*",
+      name: "404",
+      component: PageNotFound,
+    },
+    {
       path: "/success",
       name: "success",
       component: SuccessLogin,
-    },
-    {
-      path: "/:pathMatch(.*)*",
-      name: "NotFound",
-      composed: PageNotFound
     },
   ],
 });

@@ -105,7 +105,6 @@ import service from "../service/SignService";
 
 export default {
   setup: () => ({ v$: useVuelidate() }),
-  async login() {},
   data() {
     return {
       email: "",
@@ -140,11 +139,13 @@ export default {
       }
 
       this.toggleDialog();
+
       await service.loginUser({
         password: this.password,
         email: this.email,
       });
-      let redirectURL = '/success';
+
+      let redirectURL = "/success";
       this.$router.push(redirectURL);
     },
     toggleDialog() {
