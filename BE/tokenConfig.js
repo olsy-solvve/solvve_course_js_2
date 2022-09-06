@@ -1,4 +1,4 @@
 const token = {
-    secret: "SECRET_KEY"
-}
+  secret: "SECRET_KEY",
+};
 export default token.secret;
