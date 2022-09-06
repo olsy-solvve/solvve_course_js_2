@@ -1,7 +1,11 @@
-<script setup></script>
+<script setup>
+import GameList from "../views/GameList.vue";
+</script>
 
 <template>
-  <main></main>
+  <main>
+    <GameList></GameList>
+  </main>
 </template>
 
 <style></style>
