@@ -1,6 +1,6 @@
 <script setup>
 import ComponentHeader from "./components/ComponentHeader.vue";
-
+import ComponentMain from "./components/ComponentMain.vue";
 import RegisterForm from "./views/RegisterForm.vue";
 import ComponentFooter from "./components/ComponentFooter.vue";
 import AuthForm from "./views/AuthForm.vue";
@@ -13,6 +13,7 @@ import AuthForm from "./views/AuthForm.vue";
     <RegisterForm></RegisterForm>
     <RouterView />
     <AuthForm></AuthForm>
+    <ComponentMain></ComponentMain>
     <ComponentFooter></ComponentFooter>
   </div>
 </template>
