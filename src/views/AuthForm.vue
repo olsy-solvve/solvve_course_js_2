@@ -101,6 +101,7 @@
 <script>
 import { email, required } from "@vuelidate/validators";
 import { useVuelidate } from "@vuelidate/core";
+import service from "../service/SignService";
 
 export default {
   setup: () => ({ v$: useVuelidate() }),
@@ -130,7 +131,7 @@ export default {
   },
 
   methods: {
-    handleSubmit(isFormValid) {
+    async handleSubmit(isFormValid) {
       this.submitted = true;
 
       if (!isFormValid) {
@@ -138,6 +139,14 @@ export default {
       }
 
       this.toggleDialog();
+
+      await service.loginUser({
+        password: this.password,
+        email: this.email,
+      });
+
+      let redirectURL = "/success";
+      this.$router.push(redirectURL);
     },
     toggleDialog() {
       this.showMessage = !this.showMessage;
@@ -151,6 +160,17 @@ export default {
       this.password = "";
       this.accept = null;
       this.submitted = false;
+    },
+  },
+  watch: {
+    email(value) {
+      this.email = value;
+    },
+    name(value) {
+      this.name = value;
+    },
+    password(value) {
+      this.password = value;
     },
   },
 };
