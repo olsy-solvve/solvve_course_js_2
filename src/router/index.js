@@ -6,6 +6,7 @@ import UserProfile from "../views/UserProfile.vue";
 import RegisterForm from "../views/RegisterForm.vue";
 import SuccessLogin from "../views/SuccessLogin.vue";
 import PageNotFound from "../views/PageNotFound.vue";
+import SuccessLogin from "../views/SuccessLogin.vue";
 
 const index = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,6 +35,11 @@ const index = createRouter({
       path: "/profile",
       name: "profile",
       component: UserProfile,
+    },
+    {
+      path: "/success",
+      name: "success login",
+      component: SuccessLogin,
     },
     {
       path: "/*",
