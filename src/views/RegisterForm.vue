@@ -139,6 +139,7 @@
 import { email, required } from "@vuelidate/validators";
 import { useVuelidate } from "@vuelidate/core";
 import CountryService from "@/service/CountryService";
+import service from "../service/SignService";
 
 export default {
   setup: () => ({ v$: useVuelidate() }),
@@ -180,6 +181,13 @@ export default {
     this.countryService.getCountries().then((data) => (this.countries = data));
   },
   methods: {
+    async register() {
+      await service.registerNewUser({
+        name: this.name,
+        password: this.password,
+        email: this.email,
+      });
+    },
     handleSubmit(isFormValid) {
       this.submitted = true;
 
@@ -188,6 +196,7 @@ export default {
       }
 
       this.toggleDialog();
+      this.register();
     },
     toggleDialog() {
       this.showMessage = !this.showMessage;
@@ -204,6 +213,17 @@ export default {
       this.country = null;
       this.accept = null;
       this.submitted = false;
+    },
+  },
+  watch: {
+    email(value) {
+      this.email = value;
+    },
+    name(value) {
+      this.name = value;
+    },
+    password(value) {
+      this.password = value;
     },
   },
 };
