@@ -1,33 +1,22 @@
 {
   "name": "solvve_course_js_2",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview --port 4173",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+    "setup": "cd ./FE && npm install && cd ../BE && npm install",
+    "lint": "cd ./FE && npm run lint && cd ../BE && npm run lint",
+    "dev": "cd ./FE && npm run dev && cd ../BE && npm run dev",
+    "release": "cd ./FE && npm run build && cd ../BE && npm run release"
   },
-  "dependencies": {
-    "@vuelidate/core": "^2.0.0-alpha.44",
-    "@vuelidate/validators": "^2.0.0-alpha.31",
-    "axios": "^0.27.2",
-    "lint": "^0.7.0",
-    "primeflex": "^3.2.1",
-    "primeicons": "^5.0.0",
-    "primevue": "^3.16.2",
-    "sass": "^1.54.8",
-    "scss": "^0.2.4",
-    "vue": "^3.2.37",
-    "vue-router": "^4.1.4"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olsy-solvve/solvve_course_js_2.git"
   },
-  "devDependencies": {
-    "@rushstack/eslint-patch": "^1.1.4",
-    "@vitejs/plugin-vue": "^3.0.1",
-    "@vue/eslint-config-prettier": "^7.0.0",
-    "eslint": "^8.21.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-vue": "^9.3.0",
-    "prettier": "2.7.1",
-    "vite": "^3.0.4"
-  }
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olsy-solvve/solvve_course_js_2/issues"
+  },
+  "homepage": "https://github.com/olsy-solvve/solvve_course_js_2#readme"
 }
