@@ -6,7 +6,7 @@
         <form @submit.prevent="handleSubmit(!v$.$invalid)" class="p-fluid">
           <div class="field">
             <div class="p-float-label">
-              <InputText
+              <pInputText
                 id="name"
                 v-model="v$.name.$model"
                 :class="{ 'p-invalid': v$.name.$invalid && submitted }"
@@ -28,7 +28,7 @@
           <div class="field">
             <div class="p-float-label p-input-icon-right">
               <i class="pi pi-envelope" />
-              <InputText
+              <pInputText
                 id="email"
                 v-model="v$.email.$model"
                 :class="{ 'p-invalid': v$.email.$invalid && submitted }"
@@ -59,7 +59,7 @@
           </div>
           <div class="field">
             <div class="p-float-label">
-              <Password
+              <pPassword
                 id="password"
                 v-model="v$.password.$model"
                 :class="{ 'p-invalid': v$.password.$invalid && submitted }"
@@ -70,7 +70,7 @@
                 </template>
                 <template #footer="sp">
                   {{ sp.level }}
-                  <Divider />
+                  <pDivider />
                   <p class="mt-2">Suggestions</p>
                   <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
                     <li>At least one lowercase</li>
@@ -79,7 +79,7 @@
                     <li>Minimum 8 characters</li>
                   </ul>
                 </template>
-              </Password>
+              </pPassword>
               <label
                 for="password"
                 :class="{ 'p-error': v$.password.$invalid && submitted }"
@@ -99,13 +99,13 @@
           </div>
           <div class="field">
             <div class="p-float-label">
-              <Calendar id="date" v-model="date" :showIcon="true" />
+              <pCalendar id="date" v-model="date" :showIcon="true" />
               <label for="date">Birthday</label>
             </div>
           </div>
           <div class="field">
             <div class="p-float-label">
-              <Dropdown
+              <pDropdown
                 id="country"
                 v-model="country"
                 :options="countries"
@@ -115,7 +115,7 @@
             </div>
           </div>
           <div class="field-checkbox">
-            <Checkbox
+            <pCheckbox
               id="accept"
               name="accept"
               value="Accept"
@@ -128,7 +128,7 @@
               >I agree to the terms and conditions</label
             >
           </div>
-          <Button type="submit" label="Submit" class="mt-2" />
+          <pButton type="submit" label="Submit" class="mt-2" />
         </form>
       </div>
     </div>
