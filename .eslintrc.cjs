@@ -10,6 +10,9 @@ module.exports = {
     "prettier/prettier",
     "plugin:prettier/recommended",
   ],
+  rules: {
+    "vue/multi-word-component-names": "off",
+  },
   parserOptions: {
     ecmaVersion: "latest",
   },

@@ -6,7 +6,7 @@ import UserProfile from "../views/UserProfile.vue";
 import RegisterForm from "../views/RegisterForm.vue";
 import SuccessLogin from "../views/SuccessLogin.vue";
 import PageNotFound from "../views/PageNotFound.vue";
-import SuccessLogin from "../views/SuccessLogin.vue";
+//import SuccessLogin from "../views/SuccessLogin.vue";
 
 const index = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -42,7 +42,6 @@ const index = createRouter({
       component: SuccessLogin,
     },
     {
-
       path: "/*",
       name: "404",
       component: PageNotFound,
