@@ -42,7 +42,6 @@ const index = createRouter({
       component: SuccessLogin,
     },
     {
-
       path: "/*",
       name: "404",
       component: PageNotFound,

@@ -5,8 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint .. --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+    "lint": "eslint .. --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path ../.gitignore",
+    "dev": "nodemon ./index.js",
+    "release": "node ./index.js"
   },
   "repository": {
     "type": "git",

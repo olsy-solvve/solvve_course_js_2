@@ -7,7 +7,7 @@
           <div class="field">
             <div class="p-float-label p-input-icon-right">
               <i class="pi pi-envelope" />
-              <InputText
+              <pInputText
                 id="email"
                 v-model="v$.email.$model"
                 :class="{ 'p-invalid': v$.email.$invalid && submitted }"
@@ -16,8 +16,9 @@
               <label
                 for="email"
                 :class="{ 'p-error': v$.email.$invalid && submitted }"
-                >Email*</label
               >
+                Email*
+              </label>
             </div>
             <span v-if="v$.email.$error && submitted">
               <span
@@ -38,7 +39,7 @@
           </div>
           <div class="field">
             <div class="p-float-label">
-              <Password
+              <pPassword
                 id="password"
                 v-model="v$.password.$model"
                 :class="{ 'p-invalid': v$.password.$invalid && submitted }"
@@ -49,7 +50,7 @@
                 </template>
                 <template #footer="sp">
                   {{ sp.level }}
-                  <Divider />
+                  <pDivider />
                   <p class="mt-2">Suggestions</p>
                   <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
                     <li>At least one lowercase</li>
@@ -58,7 +59,7 @@
                     <li>Minimum 8 characters</li>
                   </ul>
                 </template>
-              </Password>
+              </pPassword>
               <label
                 for="password"
                 :class="{ 'p-error': v$.password.$invalid && submitted }"
@@ -77,7 +78,7 @@
             >
           </div>
           <div class="field-checkbox">
-            <Checkbox
+            <pCheckbox
               id="accept"
               name="accept"
               value="Accept"
@@ -90,8 +91,8 @@
               >A new user</label
             >
           </div>
-          <Button type="submit" label="Submit" class="mt-2" />
-          <Button label="Registration" class="p-button-text" />
+          <pButton type="submit" label="Submit" class="mt-2" />
+          <pButton label="Registration" class="p-button-text" />
         </form>
       </div>
     </div>
