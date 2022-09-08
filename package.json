@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/olsy-solvve/solvve_course_js_2/issues"
   },
-  "homepage": "https://github.com/olsy-solvve/solvve_course_js_2#readme"
+  "homepage": "https://github.com/olsy-solvve/solvve_course_js_2#readme",
+  "dependencies": {
+    "primeflex": "^3.2.1"
+  }
 }

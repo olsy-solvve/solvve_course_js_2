@@ -1,7 +1,5 @@
 <script setup>
 import ComponentHeader from "./components/ComponentHeader.vue";
-import RegisterForm from "./views/RegisterForm.vue";
-
 import ComponentFooter from "./components/ComponentFooter.vue";
 </script>
 
@@ -9,7 +7,6 @@ import ComponentFooter from "./components/ComponentFooter.vue";
   <div>
     <ComponentHeader></ComponentHeader>
     <RouterView />
-    <RegisterForm></RegisterForm>
     <ComponentFooter></ComponentFooter>
   </div>
 </template>
