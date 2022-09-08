@@ -1,0 +1,17 @@
+<script setup>
+import ComponentHeader from "./components/ComponentHeader.vue";
+import RegisterForm from "./views/RegisterForm.vue";
+
+import ComponentFooter from "./components/ComponentFooter.vue";
+</script>
+
+<template>
+  <div>
+    <ComponentHeader></ComponentHeader>
+    <RouterView />
+    <RegisterForm></RegisterForm>
+    <ComponentFooter></ComponentFooter>
+  </div>
+</template>
+
+<style scoped></style>
