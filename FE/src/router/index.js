@@ -7,6 +7,8 @@ import RegisterForm from "../views/RegisterForm.vue";
 import SuccessLogin from "../views/SuccessLogin.vue";
 import PageNotFound from "../views/PageNotFound.vue";
 import ComponentMain from "../components/ComponentMain.vue";
+import FirstGame from "../games/game1/FirstGame.vue";
+import GuessTheWord from "../games/game3/GuessTheWord.vue";
 
 const index = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -50,6 +52,16 @@ const index = createRouter({
       path: "/*",
       name: "404",
       component: PageNotFound,
+    },
+    {
+      path: "/game1",
+      name: "first game",
+      component: FirstGame,
+    },
+    {
+      path: "/game3",
+      name: "third game",
+      component: GuessTheWord,
     },
   ],
 });
