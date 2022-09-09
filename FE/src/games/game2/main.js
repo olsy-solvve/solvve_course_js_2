@@ -12,6 +12,8 @@ const store = Vue.observable({
   game: {
     hasBegun: false,
     results: undefined,
+    loser: 0,
+    winner: 1,
     difficulty: { name: undefined, value: undefined },
     mistakes: 0,
     maxMistakes: 3,
@@ -21,8 +23,6 @@ const store = Vue.observable({
       ...store.game,
       hasBegun: true,
       results: undefined,
-      winner: 1,
-      loser: 0,
       mistakes: 0,
       difficulty,
     };
@@ -42,7 +42,7 @@ const store = Vue.observable({
     store.game.mistakes++;
     if (store.game.mistakes >= store.game.maxMistakes) {
       store.game.results = "lost";
-      store.game.loser = 1;
+      store.game.loser = 0;
     }
   },
   clearHighlights() {
