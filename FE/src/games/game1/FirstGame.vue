@@ -15,6 +15,7 @@
   </div>
 </template>
 <script>
+import { useRoute } from "vue-router";
 export default {
   name: "App",
   data() {
@@ -23,6 +24,8 @@ export default {
       answer: 0,
       status: "",
       started: false,
+      id: "guessthenumber",
+      result: null,
     };
   },
   computed: {
@@ -43,13 +46,28 @@ export default {
       const { answer, rightAnswer } = this;
       if (answer === rightAnswer) {
         this.status = "you got it";
+        this.result = 1;
         this.started = false;
       } else if (answer < rightAnswer) {
         this.status = "too low";
+        this.result = 0;
+        this.started = false;
       } else {
         this.status = "too high";
+        this.result = 0;
+        this.started = false;
       }
+      this.submitResult(this.result);
+      console.log(this.result);
     },
+    submitResult (result) {
+
+    },
+  },
+  created() {
+    const route = useRoute();
+    route.params.id = "guessthenumber";
+    this.id = "guessthenumber";
   },
 };
 </script>

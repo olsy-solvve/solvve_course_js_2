@@ -141,13 +141,15 @@ export default {
 
       this.toggleDialog();
 
-      await service.loginUser({
-        password: this.password,
-        email: this.email,
-      });
-
-      let redirectURL = "/success";
-      this.$router.push(redirectURL);
+      await service
+        .loginUser({
+          password: this.password,
+          email: this.email,
+        })
+        .then((res) => {
+          let redirectURL = `/profile/${res.data.name}`;
+          this.$router.push(redirectURL);
+        });
     },
     toggleDialog() {
       this.showMessage = !this.showMessage;

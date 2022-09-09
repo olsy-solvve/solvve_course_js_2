@@ -6,13 +6,19 @@ import UserProfile from "../views/UserProfile.vue";
 import RegisterForm from "../views/RegisterForm.vue";
 import SuccessLogin from "../views/SuccessLogin.vue";
 import PageNotFound from "../views/PageNotFound.vue";
+import ComponentMain from "../components/ComponentMain.vue";
 //import SuccessLogin from "../views/SuccessLogin.vue";
 
 const index = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: "/(games)?",
+      path: "/",
+      name: "gameList",
+      component: ComponentMain,
+    },
+    {
+      path: "/games",
       name: "games",
       component: GameList,
     },
@@ -32,7 +38,7 @@ const index = createRouter({
       component: RegisterForm,
     },
     {
-      path: "/profile",
+      path: "/profile/:name",
       name: "profile",
       component: UserProfile,
     },

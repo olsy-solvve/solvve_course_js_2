@@ -130,6 +130,7 @@
           </div>
           <pButton type="submit" label="Submit" class="mt-2" />
         </form>
+
       </div>
     </div>
   </div>
@@ -154,6 +155,7 @@ export default {
       submitted: false,
       countries: null,
       showMessage: false,
+      error: "",
     };
   },
   countryService: null,
@@ -169,6 +171,9 @@ export default {
       password: {
         required,
       },
+      country: {
+        required,
+      },
       accept: {
         required,
       },
@@ -182,11 +187,18 @@ export default {
   },
   methods: {
     async register() {
-      await service.registerNewUser({
-        name: this.name,
-        password: this.password,
-        email: this.email,
-      });
+      await service
+        .registerNewUser({
+          name: this.name,
+          password: this.password,
+          email: this.email,
+          country: this.country.name,
+        })
+        .then((res) => {
+          let redirectURL = `/profile/${res.data.name}`;
+          this.$router.push(redirectURL);
+        })
+      .catch((err) => this.error = err);
     },
     handleSubmit(isFormValid) {
       this.submitted = true;
@@ -224,6 +236,9 @@ export default {
     },
     password(value) {
       this.password = value;
+    },
+    country(value) {
+      this.country = value;
     },
   },
 };
