@@ -7,31 +7,26 @@
         class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center"
       >
         <section>
-          <span class="block text-6xl font-bold mb-1"
-            >Create the screens your</span
+          <span class="block text-6xl font-bold mb-1 line-height-3"
+            >The TOP Math</span
           >
-          <div class="text-6xl text-primary font-bold mb-3">
-            your visitors deserve to see
+          <div class="text-6xl text-primary font-bold mb-3 line-height-3">
+            JavaScript games you can play right now
           </div>
           <p class="mt-0 mb-4 text-700 line-height-3">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Here you will find the most favorite games for all ages. Just click
+            and you will stay with us for a long time.
           </p>
           <pButton
-            label="Learn More"
+            label="Let's start"
             type="button"
             class="mr-3 p-button-raised"
-          ></pButton>
-          <pButton
-            label="Live Demo"
-            type="button"
-            class="p-button-outlined"
           ></pButton>
         </section>
       </div>
       <div class="col-12 md:col-6 overflow-hidden">
         <img
-          src="https://www.primefaces.org/wp-content/uploads/2020/02/primefacesorg-primevue-2020.png"
+          src="https://damion.club/uploads/posts/2022-01/thumbs/1641922793_79-damion-club-p-fon-dlya-prezentatsii-kompyuternikh-igr-84.jpg"
           alt="Image"
           class="md:ml-auto block md:h-full"
           style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)"
