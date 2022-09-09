@@ -7,11 +7,13 @@
 </template>
 
 <script>
-import Game1 from "../games/IndexGame.vue";
+import Game1 from "../games/game1/FirstGame.vue";
+//import Game2 from "../games/game2/";
 
 export default {
   components: {
     Game1,
+    //Game2,
   },
   computed: {
     componentId() {
