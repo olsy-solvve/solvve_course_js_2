@@ -7,6 +7,7 @@ import RegisterForm from "../views/RegisterForm.vue";
 import SuccessLogin from "../views/SuccessLogin.vue";
 import PageNotFound from "../views/PageNotFound.vue";
 import ComponentMain from "../components/ComponentMain.vue";
+import Game3 from "../games/game3/index.vue";
 
 const index = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,6 +21,12 @@ const index = createRouter({
       path: "/games",
       name: "games",
       component: GameList,
+    },
+    //temporary
+    {
+      path: "/games/game3",
+      name: "game3",
+      component: Game3,
     },
     {
       path: "/games/:id",
