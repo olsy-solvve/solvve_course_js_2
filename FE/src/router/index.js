@@ -9,7 +9,7 @@ import PageNotFound from "../views/PageNotFound.vue";
 import ComponentMain from "../components/ComponentMain.vue";
 import FirstGame from "../games/game1/FirstGame.vue";
 import GuessTheWord from "../games/game3/GuessTheWord.vue";
-import Game3 from "../games/game3/index.vue";
+import PracticeCounting from "../games/game4/index.vue";
 
 const index = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -23,12 +23,6 @@ const index = createRouter({
       path: "/games",
       name: "games",
       component: GameList,
-    },
-    //temporary
-    {
-      path: "/games/game3",
-      name: "game3",
-      component: Game3,
     },
     {
       path: "/games/:id",
@@ -69,6 +63,11 @@ const index = createRouter({
       path: "/game3",
       name: "third game",
       component: GuessTheWord,
+    },
+    {
+      path: "/game4",
+      name: "PracticeCounting",
+      component: PracticeCounting,
     },
   ],
 });
