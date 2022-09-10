@@ -4,18 +4,6 @@ const api = axios.create({
   baseURL: "http://localhost:3200/",
 });
 
-axios.interceptors.response.use(
-  function (response) {
-    if (response.status === 404) {
-      return response.status(404).json({ response });
-    }
-    return response;
-  },
-  function (error) {
-    return new Error(error);
-  }
-);
-
 class SignService {
   registerNewUser(data) {
     return api
@@ -26,7 +14,7 @@ class SignService {
         }
       })
       .catch((err) => {
-        return err;
+        return new Error(err.response.data.message);
       });
   }
 
@@ -37,11 +25,13 @@ class SignService {
         if (res.status === 201) {
           res.headers.authorization = `Bearer ${res.data.token}`;
           localStorage.setItem("token", res.data.token);
-          localStorage.setItem("solvveUsername", res.data.name);
+          localStorage.setItem("solvveusername", res.data.name);
           return res;
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        return new Error(err.response.data.message);
+      });
   }
 
   getUserInfo(data) {
@@ -59,9 +49,8 @@ class SignService {
   }
 
   updateStat(data) {
-      const headers = { name: localStorage.getItem("solvveUsername") };
-      return api
-          .post("/updateStat", data, { headers: headers })
+    const headers = { name: localStorage.getItem("solvveusername") };
+    return api.post("/updateStat", data, { headers: headers });
   }
 }
 

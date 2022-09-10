@@ -6,7 +6,7 @@ import "./assets/main.css";
 
 const app = createApp(App);
 
-import prime from "./plagins/prime";
+import prime from "./plugins/prime";
 prime(app);
 
 app.use(router);

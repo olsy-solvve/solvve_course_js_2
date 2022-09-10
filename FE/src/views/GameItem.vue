@@ -1,43 +1,25 @@
 <template>
   <div>
-    <div v-if="id">
-      <component :is="id" v-if="id === 'guessthenumber'">
-        <FirstGame></FirstGame>
-      </component>
-      <!--      <component :is="id" v-if="id === 'sudoku'">-->
-      <!--        <getCellMates></getCellMates>-->
-      <!--      </component>-->
+    <div v-if="componentGame">
+      <component :is="componentGame"></component>
     </div>
   </div>
 </template>
 
 <script>
-import { useRoute } from "vue-router";
-import FirstGame from "../games/game1/FirstGame.vue";
-// import {sudoku} from "../games/game2/utils";
-// import {getCellMates} from "../games/game2/utils.js";
-
 export default {
   name: "GameItem",
-  data (){
+  data() {
     return {
-      id: null,
+      componentGame: null,
     };
   },
-  components: {
-    FirstGame,
-    // getCellMates,
-  },
-  computed: {
-    id() {
-      const route = useRoute();
-      this.id = route.params.id;
-      return route.params.id;
-    },
-  },
-  created() {
-    if (!localStorage.getItem("token")) {
-      this.$router.push("/auth");
+  async mounted() {
+    const { id } = this.$route.params;
+    if (id) {
+      this.componentGame = await import(`../games/${id}/index.vue`).then(
+        (component) => component.default
+      );
     }
   },
 };

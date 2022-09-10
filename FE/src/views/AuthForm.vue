@@ -92,8 +92,13 @@
             >
           </div>
           <pButton type="submit" label="Submit" class="mt-2" />
-          <pButton label="Registration" class="p-button-text" />
+          <pButton
+            label="Registration"
+            class="p-button-text"
+            @click="this.$router.push('/register')"
+          />
         </form>
+        <h1>{{ error }}</h1>
       </div>
     </div>
   </div>
@@ -113,6 +118,7 @@ export default {
       accept: null,
       submitted: false,
       showMessage: false,
+      error: "",
     };
   },
   countryService: null,
@@ -147,8 +153,12 @@ export default {
           email: this.email,
         })
         .then((res) => {
-          let redirectURL = `/profile/${res.data.name}`;
-          this.$router.push(redirectURL);
+          if (String(res).split(" ")[0] === "Error:") {
+            this.error = res;
+          } else {
+            let redirectURL = `/profile/${res.data.name}`;
+            this.$router.push(redirectURL);
+          }
         });
     },
     toggleDialog() {

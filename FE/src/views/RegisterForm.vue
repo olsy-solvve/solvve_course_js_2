@@ -129,10 +129,15 @@
             >
           </div>
           <pButton type="submit" label="Submit" class="mt-2" />
+          <pButton
+            label="Already registered? Login"
+            class="p-button-text"
+            @click="this.$router.push('/auth')"
+          />
         </form>
-
       </div>
     </div>
+    <h1>{{ error }}</h1>
   </div>
 </template>
 
@@ -195,10 +200,14 @@ export default {
           country: this.country.name,
         })
         .then((res) => {
-          let redirectURL = `/profile/${res.data.name}`;
-          this.$router.push(redirectURL);
+          if (String(res).split(" ")[0] === "Error:") {
+            this.error = res;
+          } else {
+            let redirectURL = `/profile/${res.data.name}`;
+            this.$router.push(redirectURL);
+          }
         })
-      .catch((err) => this.error = err);
+        .catch((err) => (this.error = err));
     },
     handleSubmit(isFormValid) {
       this.submitted = true;

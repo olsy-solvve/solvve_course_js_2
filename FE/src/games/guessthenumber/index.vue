@@ -10,12 +10,13 @@
     <p>{{ status }}</p>
   </div>
   <div v-else>
-    <button type="button" @click="start">start</button>
+    <pButton type="button" @click="start">start</pButton>
     <p>{{ status }}</p>
   </div>
 </template>
 <script>
 import { useRoute } from "vue-router";
+import service from "../../service/SignService";
 export default {
   name: "App",
   data() {
@@ -57,11 +58,17 @@ export default {
         this.result = 0;
         this.started = false;
       }
-      this.submitResult(this.result);
+      this.submitResult();
       console.log(this.result);
     },
-    submitResult (result) {
-
+    async submitResult() {
+      await service
+        .updateStat({
+          result: this.result,
+        })
+        .then((res) => {
+          console.log(res);
+        });
     },
   },
   created() {
