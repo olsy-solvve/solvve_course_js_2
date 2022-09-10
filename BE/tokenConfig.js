@@ -1,4 +1,4 @@
 const token = {
-  secret: "SECRET_KEY",
+  secret: "SOLVVE_COURSE",
 };
 export default token.secret;
