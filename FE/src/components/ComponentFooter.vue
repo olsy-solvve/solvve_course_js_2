@@ -13,7 +13,7 @@ export default {
   <footer>
     <div class="footer">
       <div class="container">
-        <div class="row">
+        <div class="grid">
           <div class="col-4">
             <p class="footer__name">SOLVVE company</p>
             <p>Creation and support of web applications</p>
@@ -22,28 +22,28 @@ export default {
             <p class="footer__social">Our social media profiles:</p>
             <p class="footer__social-icons">
               <a href="#" target="_blank">
-                <i class="fa fa-facebook" aria-hidden="true"> </i>
+                <i class="pi pi-facebook" aria-hidden="true"> </i>
               </a>
               <a href="#" target="_blank">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
+                <i class="pi pi-twitter" aria-hidden="true"></i>
               </a>
               <a href="#" target="_blank">
-                <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                <i class="pi pi-whatsapp" aria-hidden="true"></i>
               </a>
               <a href="#" target="_blank">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
+                <i class="pi pi-instagram" aria-hidden="true"></i>
               </a>
               <a href="#" target="_blank">
-                <i class="fa fa-youtube" aria-hidden="true"></i>
+                <i class="pi pi-youtube" aria-hidden="true"></i>
               </a>
             </p>
+            <p>© {{ year }}. All rights reserved</p>
           </div>
           <div class="col-4">
             <div>
               <a href="#" class="button" target="_blank">Contact Viber</a>
             </div>
-            <p>Write to me <br />to find out more</p>
-            <p>{{ year }}</p>
+            <p>Write to me to find out more</p>
           </div>
         </div>
       </div>
@@ -55,8 +55,6 @@ export default {
 .footer {
   background-color: #061634;
   color: #6479a2;
-  padding-top: 90px;
-  padding-bottom: 190px;
 }
 
 .footer p {
@@ -68,7 +66,6 @@ p.footer__name {
   font-size: 28px;
   margin-bottom: 10px;
   line-height: normal;
-  /* font-family: 'Merriweather', serif; */
 }
 
 p.footer__social {
