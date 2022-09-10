@@ -61,7 +61,6 @@ export default {
   },
   created() {
     this.username = localStorage.getItem("solvveusername");
-    console.log(this.username);
   },
 };
 </script>
