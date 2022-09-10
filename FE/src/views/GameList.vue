@@ -20,7 +20,7 @@
         <template #title> {{ game.title || "No title" }} </template>
         <template #content>
           <p>
-            {{ game.description || "" }}
+            {{ game.description || "no description" }}
           </p>
         </template>
         <template #footer>
@@ -33,6 +33,7 @@
 
 <script>
 const components = import.meta.globEager("@/games/*/info.json");
+
 export default {
   data() {
     return {
