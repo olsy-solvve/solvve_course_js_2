@@ -6,7 +6,9 @@
           class="py-6 flex flex-column sm:flex-row sm:align-items-center justify-content-between"
         >
           <div>
-            <div class="mt-2 line-height-3">© {{ year }}. All rights reserved</div>
+            <div class="mt-2 line-height-3">
+              © {{ year }}. All rights reserved
+            </div>
           </div>
           <div class="mt-3 sm:mt-0">
             <a
