@@ -1,5 +1,9 @@
 <template>
   <div class="text-4xl text-primary">Choose your game</div>
+  <div>
+    <pButton label="Profile" @click="this.$router.push(`/profile/${username}`)">
+    </pButton>
+  </div>
   <br />
   <div class="grid">
     <div v-for="(game, path) in games" :key="path" class="col-4">
@@ -16,9 +20,7 @@
         <template #title> {{ game.title || "No title" }} </template>
         <template #content>
           <p>
-            A puzzle in which missing numbers are to be filled into a 9 by 9
-            grid of squares which are subdivided into 3 by 3 boxes so that every
-            row, every column, and every box contains the numbers 1 through 9.
+            {{ game.description || "" }}
           </p>
         </template>
         <template #footer>
@@ -37,6 +39,7 @@ export default {
       games: components,
       defaultImage:
         "https://www.primefaces.org/wp-content/uploads/2020/02/primefacesorg-primevue-2020.png",
+      username: "",
     };
   },
   methods: {
@@ -55,6 +58,9 @@ export default {
 
       return new URL(`${imgPath}`, import.meta.url);
     },
+  },
+  created() {
+    this.username = localStorage.getItem("solvveusername");
   },
 };
 </script>

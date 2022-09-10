@@ -8,6 +8,7 @@
 
 <script>
 export default {
+  name: "GameItem",
   data() {
     return {
       componentGame: null,

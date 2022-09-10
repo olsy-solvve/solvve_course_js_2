@@ -1,4 +1,7 @@
-<script setup></script>
+
+<script>
+export default {};
+</script>
 
 <template>
   <main>
@@ -17,11 +20,15 @@
             Here you will find the most favorite games for all ages. Just click
             and you will stay with us for a long time.
           </p>
-          <pButton
-            label="Let's start"
-            type="button"
-            class="mr-3 p-button-raised"
-          ></pButton>
+
+          <router-link to="/games">
+            <pButton
+              label="Let's start"
+              type="button"
+              class="mr-3 p-button-raised"
+            ></pButton>
+          </router-link>
+
         </section>
       </div>
       <div class="col-12 md:col-6 overflow-hidden">
