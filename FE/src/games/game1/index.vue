@@ -5,12 +5,12 @@
         <label>answer</label>
         <input v-model.number="answer" />
       </div>
-      <button type="submit">check</button>
+      <pButton type="submit">check</pButton>
     </form>
     <p>{{ status }}</p>
   </div>
   <div v-else>
-    <button type="button" @click="start">Start</button>
+    <pButton type="button" @click="start">Start</pButton>
     <p>{{ status }}</p>
   </div>
 </template>
@@ -22,8 +22,6 @@ export default {
       rightAnswer: undefined,
       answer: 0,
       status: "",
-      winner: 1,
-      loser: 0,
       started: false,
     };
   },
