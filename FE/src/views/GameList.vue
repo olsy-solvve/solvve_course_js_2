@@ -58,9 +58,9 @@
         <template #subtitle> Game description </template>
         <template #content>
           <p>
-            "Guess the Word" takes you back to your childhood to find your lost joy. 
-            An interesting way of presenting boring knowledge will help you develop 
-            the potential of your brain and start brainstorming. 
+            "Guess the Word" takes you back to your childhood to find your lost
+            joy. An interesting way of presenting boring knowledge will help you
+            develop the potential of your brain and start brainstorming.
           </p>
         </template>
         <template #footer>
