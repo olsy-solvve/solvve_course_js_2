@@ -53,16 +53,6 @@ const index = createRouter({
       name: "404",
       component: PageNotFound,
     },
-    {
-      path: "/game1",
-      name: "first game",
-      component: FirstGame,
-    },
-    {
-      path: "/game3",
-      name: "third game",
-      component: GuessTheWord,
-    },
   ],
 });
 
