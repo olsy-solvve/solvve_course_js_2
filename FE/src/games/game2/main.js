@@ -12,6 +12,8 @@ const store = Vue.observable({
   game: {
     hasBegun: false,
     results: undefined,
+    loser: 0,
+    winner: 1,
     difficulty: { name: undefined, value: undefined },
     mistakes: 0,
     maxMistakes: 3,
@@ -33,12 +35,14 @@ const store = Vue.observable({
     store.grid = actions.setCellValue(store.grid, cell, newValue);
     if (store.grid.every((cell) => cell.value !== "")) {
       store.game.results = "won";
+      store.game.winner = 1;
     }
   },
   addMistake() {
     store.game.mistakes++;
     if (store.game.mistakes >= store.game.maxMistakes) {
       store.game.results = "lost";
+      store.game.loser = 0;
     }
   },
   clearHighlights() {
@@ -50,6 +54,7 @@ const store = Vue.observable({
       value: cell.expectedValue,
     }));
     store.game.results = "won";
+    store.game.winner = 1;
   },
   tryAgain() {
     store.grid = actions.startOver(store.grid);

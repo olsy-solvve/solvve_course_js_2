@@ -10,7 +10,7 @@
     <p>{{ status }}</p>
   </div>
   <div v-else>
-    <pButton type="button" @click="start">start</pButton>
+    <pButton type="button" @click="start">Start</pButton>
     <p>{{ status }}</p>
   </div>
 </template>
@@ -42,12 +42,15 @@ export default {
       }
       const { answer, rightAnswer } = this;
       if (answer === rightAnswer) {
-        this.status = "you got it";
+        this.status = "You got it";
+        this.winner = 1;
         this.started = false;
       } else if (answer < rightAnswer) {
-        this.status = "too low";
+        this.status = "Too low";
+        this.loser = 0;
       } else {
-        this.status = "too high";
+        this.status = "Too high";
+        this.loser = 0;
       }
     },
   },
