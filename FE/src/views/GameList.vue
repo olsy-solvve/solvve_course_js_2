@@ -73,7 +73,15 @@
 </template>
 
 <script>
-export default {};
+const components = import.meta.globEager("@/games/*/index.vue");
+console.log(components);
+export default {
+  data() {
+    return {
+      games: Object.keys(components), //.map(path => path.replace(/^.*\/(game[0-9]+)\/.*$/, '$1')),
+    };
+  },
+};
 </script>
 
 <style scoped></style>

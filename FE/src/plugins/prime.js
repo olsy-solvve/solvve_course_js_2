@@ -99,7 +99,7 @@ import VirtualScroller from "primevue/virtualscroller";
 import "primevue/resources/themes/saga-blue/theme.css";
 import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
-import "/node_modules/primeflex/primeflex.css";
+import "primeflex/primeflex.css";
 
 export default (app) => {
   app.component("pAccordion", Accordion);
