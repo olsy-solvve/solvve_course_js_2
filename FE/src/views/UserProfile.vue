@@ -1,13 +1,6 @@
 <template>
-  <div>
-    <div v-if="String(error).length > 0">
-      <h1>{{ error }}</h1>
-      <br />
-      <pButton @click="this.$router.push('/auth')" label="Auth"> </pButton>
-      <pButton @click="this.$router.push('/register')" label="Register">
-      </pButton>
-    </div>
-    <div class="col-12">
+  <div class="container">
+    <div class="background-size: auto;">
       <ul class="list-none p-0 m-0 flex font-medium mb-3">
         <li>
           <pButton @click="this.$router.push('/games')" label="Games"></pButton>

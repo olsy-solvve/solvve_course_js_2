@@ -94,13 +94,13 @@ export default {
 .footer {
   background-color: #061634;
   color: #6479a2;
-  border: 1px;
-  border-style: solid;
-  border-color: white;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
 }
 
 .footer p {
-  margin-top: 0px;
+  margin-top: 25px;
   margin-bottom: 15px;
 }
 
