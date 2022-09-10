@@ -100,7 +100,7 @@ export default {
 }
 
 .footer p {
-  margin-top: 0px;
+  margin-top: 25px;
   margin-bottom: 15px;
 }
 

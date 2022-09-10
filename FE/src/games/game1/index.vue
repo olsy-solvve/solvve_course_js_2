@@ -15,19 +15,25 @@
               <p class="text-center">Can you guess it?</p>
             </label>
             <pInputNumber inputId="integeronly" v-model.number="answer" />
+            <br />
+            <br />
+            <pButton
+              class="p-button"
+              style="bg-center text-center"
+              type="button "
+              >check</pButton
+            >
           </div>
         </div>
-        <div style="align-items-center">
-          <pButton type="submit">check</pButton>
-        </div>
+        <br />
       </form>
-      <p>{{ status }}</p>
+      <p class="text-center">{{ status }}</p>
     </div>
     <div v-else>
-      <pButton class="p-button-rounded" type="button" @click="start"
+      <pButton class="p-button-rounded" type="button " @click="start"
         >Start</pButton
       >
-      <p>{{ status }}</p>
+      <p class="text-center">{{ status }}</p>
     </div>
   </div>
 </template>

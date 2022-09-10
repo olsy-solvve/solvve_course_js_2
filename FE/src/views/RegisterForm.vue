@@ -2,7 +2,7 @@
   <div class="form-demo">
     <div class="flex justify-content-center">
       <div class="card">
-        <h2 class="text-center">Registration</h2>
+        <h1 class="text-center">Registration</h1>
         <form @submit.prevent="handleSubmit(!v$.$invalid)" class="p-fluid">
           <div class="field">
             <div class="p-float-label">
@@ -257,6 +257,8 @@ export default {
 .form-demo {
   .card {
     min-width: 450px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 
     form {
       margin-top: 2rem;
