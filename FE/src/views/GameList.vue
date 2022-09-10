@@ -50,18 +50,17 @@
       <pCard>
         <template #header>
           <img
-            src="https://www.primefaces.org/wp-content/uploads/2020/02/primefacesorg-primevue-2020.png"
+            src="https://ds-blobs-1.cdn.devapps.ru/5870169.png"
             style="height: 15rem"
           />
         </template>
-        <template #title> Name of the game </template>
+        <template #title> Guess The Word </template>
         <template #subtitle> Game description </template>
         <template #content>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore
-            sed consequuntur error repudiandae numquam deserunt quisquam
-            repellat libero asperiores earum nam nobis, culpa ratione quam
-            cupiditate neque quas!
+            "Guess the Word" takes you back to your childhood to find your lost joy. 
+            An interesting way of presenting boring knowledge will help you develop 
+            the potential of your brain and start brainstorming. 
           </p>
         </template>
         <template #footer>
