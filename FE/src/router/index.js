@@ -7,8 +7,6 @@ import RegisterForm from "../views/RegisterForm.vue";
 import SuccessLogin from "../views/SuccessLogin.vue";
 import PageNotFound from "../views/PageNotFound.vue";
 import ComponentMain from "../components/ComponentMain.vue";
-import FirstGame from "../games/game1/index.vue";
-import GuessTheWord from "../games/game3/GuessTheWord.vue";
 
 const index = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

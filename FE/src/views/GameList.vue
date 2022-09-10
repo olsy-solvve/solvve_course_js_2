@@ -60,8 +60,6 @@ export default {
 </script>
 
 <style scoped></style>
-
-<<<<<<< HEAD
           <pButton label="Play" />
         </template>
       </pCard>
@@ -85,6 +83,7 @@ export default {
         </template>
         <template #footer>
           <pButton label="Play" />
+          <pButton label="Play" @click="openGame(path)" />
         </template>
       </pCard>
     </div>
