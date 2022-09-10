@@ -62,13 +62,14 @@ export default {
       console.log(this.result);
     },
     async submitResult() {
-      await service
-        .updateStat({
-          result: this.result,
-        })
-        .then((res) => {
-          console.log(res);
-        });
+      this.$emit('end', this.result);
+      // await service
+      //   .updateStat({
+      //     result: this.result,
+      //   })
+      //   .then((res) => {
+      //     console.log(res);
+      //   });
     },
   },
   created() {
