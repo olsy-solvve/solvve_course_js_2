@@ -50,9 +50,9 @@ export default {
       if (this.counterAll * (this.counterCorrect / 100) >= 50) {
         this.resultToStat = 1;
         // this.$emit("end", true);
-        // this.$emit("end", false);
       } else {
         this.resultToStat = 0;
+        // this.$emit("end", false);
       }
       this.submitResult();
       this.$router.push("/games");
