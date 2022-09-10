@@ -62,7 +62,7 @@ export default {
       console.log(this.result);
     },
     async submitResult() {
-      this.$emit('end', this.result);
+      this.$emit("end", this.result);
       // await service
       //   .updateStat({
       //     result: this.result,

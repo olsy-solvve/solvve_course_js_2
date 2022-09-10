@@ -2,7 +2,7 @@
   <div class="form-demo">
     <div class="flex justify-content-center">
       <div class="card">
-        <h2 class="text-center">Authorization</h2>
+        <h1 class="text-center">Welcome</h1>
         <form @submit.prevent="handleSubmit(!v$.$invalid)" class="p-fluid">
           <div class="field">
             <div class="p-float-label p-input-icon-right">
@@ -75,20 +75,6 @@
               >{{
                 v$.password.required.$message.replace("Value", "Password")
               }}</small
-            >
-          </div>
-          <div class="field-checkbox">
-            <pCheckbox
-              id="accept"
-              name="accept"
-              value="Accept"
-              v-model="v$.accept.$model"
-              :class="{ 'p-invalid': v$.accept.$invalid && submitted }"
-            />
-            <label
-              for="accept"
-              :class="{ 'p-error': v$.accept.$invalid && submitted }"
-              >A new user</label
             >
           </div>
           <pButton type="submit" label="Submit" class="mt-2" />
