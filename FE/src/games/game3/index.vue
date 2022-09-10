@@ -1,23 +1,25 @@
 <template>
-  <div v-if="started">
-    <form @submit.prevent="submit">
-      <div>
-        <label>Enter a letter</label>
-        <input v-model="letter" />
-      </div>
-      <pButton type="submit">check</pButton>
-    </form>
-    <p>{{ notice }}</p>
-    <h2>
-      <p>{{ message }}</p>
-    </h2>
-  </div>
-  <div v-else>
-    <h1>Guess the word!</h1>
-    <section>
-      <pButton type="button" @click="start">Start</pButton>
-    </section>
-    <p>{{ notice }}</p>
+  <h1>Guess the word!</h1>
+  <div class="game">
+    <div v-if="started">
+      <form @submit.prevent="submit">
+        <div>
+          <label>Enter a letter</label>
+          <input v-model="letter" />
+        </div>
+        <pButton type="submit">check</pButton>
+      </form>
+      <p>{{ notice }}</p>
+      <h2>
+        <p>{{ message }}</p>
+      </h2>
+    </div>
+    <div v-else>
+      <section>
+        <pButton type="button" @click="start">Start</pButton>
+      </section>
+      <p>{{ notice }}</p>
+    </div>
   </div>
 </template>
 <script>
