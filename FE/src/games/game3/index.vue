@@ -1,6 +1,6 @@
 <template>
-  <h1>Guess the word!</h1>
-  <div class="game">
+  <div style="text-align: center">
+    <h1>Guess the word!</h1>
     <div v-if="started">
       <form @submit.prevent="submit">
         <div>
