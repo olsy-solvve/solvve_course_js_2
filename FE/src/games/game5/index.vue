@@ -81,7 +81,7 @@ export default {
       // this.isFinished = false;
     },
     suffle() {
-      for (let i = 0; i < this.count * 2; i++) {
+      for (let i = 0; i < 1; i++) {
         this.change(
           Math.floor(Math.random() * this.count),
           Math.floor(Math.random() * this.count)
@@ -96,6 +96,10 @@ export default {
       this.toggleCeil(x, y + 1);
 
       this.isFinished = this.checkStatus();
+
+      if (this.isFinished) {
+        this.$emit("onresult", { points: this.count });
+      }
     },
     toggleCeil(x, y) {
       const currentVal = get(this.arr, `${x}.${y}`);

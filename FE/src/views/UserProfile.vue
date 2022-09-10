@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <div v-if="String(error).length > 0">
       <h1>{{ error }}</h1>
       <br />

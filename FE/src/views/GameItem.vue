@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="componentGame">
-      <component :is="componentGame"></component>
+      <component :is="componentGame" @onresult="sendResult"></component>
     </div>
   </div>
 </template>
@@ -13,6 +13,15 @@ export default {
     return {
       componentGame: null,
     };
+  },
+  methods: {
+    sendResult(event) {
+      const { id } = this.$route.params;
+      const { points } = event;
+
+      console.log(id, points);
+      // send to BE
+    },
   },
   async mounted() {
     const { id } = this.$route.params;

@@ -68,7 +68,6 @@ export default {
         v-bind:value="item"
         v-on:click="nextRound($event)"
         class="p-button-rounded p-button-secondary"
-
       >
         {{ item }}
       </Button>

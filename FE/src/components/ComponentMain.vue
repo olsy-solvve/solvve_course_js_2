@@ -1,4 +1,3 @@
-
 <script>
 export default {};
 </script>
@@ -28,7 +27,6 @@ export default {};
               class="mr-3 p-button-raised"
             ></pButton>
           </router-link>
-
         </section>
       </div>
       <div class="col-12 md:col-6 overflow-hidden">

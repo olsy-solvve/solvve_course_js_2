@@ -14,12 +14,12 @@ const index = createRouter({
   routes: [
     {
       path: "/",
-      name: "gameList",
+      name: "home",
       component: ComponentMain,
     },
     {
       path: "/games",
-      name: "games",
+      name: "gameList",
       component: GameList,
     },
     {

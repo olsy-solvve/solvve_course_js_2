@@ -21,9 +21,9 @@ export default {
           label: "Quit",
           icon: "pi pi-fw pi-power-off",
           to: "/auth",
-        }
-      ]
-    }
+        },
+      ],
+    };
   },
   components: { Menubar, InputText, Chip },
 };
