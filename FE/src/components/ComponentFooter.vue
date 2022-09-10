@@ -55,6 +55,9 @@ export default {
 .footer {
   background-color: #061634;
   color: #6479a2;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
 }
 
 .footer p {

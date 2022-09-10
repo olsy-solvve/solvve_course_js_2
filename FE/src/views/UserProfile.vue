@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="col-12">
+  <div class="container">
+    <div class="background-size: auto;">
       <ul class="list-none p-0 m-0 flex font-medium mb-3">
         <li>
           <a class="text-500 no-underline line-height-3 cursor-pointer">Home</a>
