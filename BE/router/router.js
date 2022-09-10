@@ -2,6 +2,7 @@ import { Router } from "express";
 import controller from "../userController.js";
 import { check } from "express-validator";
 import cors from "cors";
+import authMiddleware from "../middleware/authMiddleware.js";
 
 const router = Router();
 router.use(cors());
@@ -21,5 +22,17 @@ router.post("/login", (req, res) => {
   console.log(123);
   controller.signIn(req, res);
 });
+
+router.get("/games", authMiddleware, (req, res) => {
+  controller.getGames(req, res);
+});
+
+router.post("/userInfo", authMiddleware, (req, res) => {
+    controller.getUserInfo(req, res);
+});
+
+router.post("/updateStat", (req, res) => {
+    controller.updateStatistics(req, res);
+})
 
 export default router;

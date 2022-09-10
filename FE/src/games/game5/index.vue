@@ -3,7 +3,7 @@
     <h2 class="flex justify-content-between">
       <b>Lira Game (by Olsy)</b>
       <span>
-        Current level: {{ count }}
+        Current level: {{ count }} / {{ levelMax }}
         <pButton
           icon="pi pi-info"
           class="p-button-sm p-button-rounded p-button-info ml-3"
@@ -28,15 +28,17 @@
         </pDialog>
       </span>
     </h2>
-    <div class="flex flex-column game-olsy">
-      <div v-for="(row, i) in arr" :key="i" class="flex flex-row flex-1 my-2">
-        <div
-          v-for="(ceil, j) in row"
-          :key="i * count + j"
-          class="flex flex-1 mx-2 border-round"
-          :class="ceil ? 'bg-cyan-600' : 'bg-purple-500'"
-          @click="change(i, j)"
-        ></div>
+    <div class="flex justify-content-center my-4">
+      <div class="flex flex-column game-olsy">
+        <div v-for="(row, i) in arr" :key="i" class="flex flex-row flex-1 my-2">
+          <div
+            v-for="(ceil, j) in row"
+            :key="i * count + j"
+            class="flex flex-1 mx-2 border-round"
+            :class="ceil ? 'bg-cyan-600' : 'bg-purple-500'"
+            @click="change(i, j)"
+          ></div>
+        </div>
       </div>
     </div>
     <pDialog
@@ -62,6 +64,7 @@ export default {
       isFinished: false,
       isOpenInfo: true,
       gameIsStarted: false,
+      levelMax: 6
     };
   },
   methods: {
@@ -96,6 +99,11 @@ export default {
       this.toggleCeil(x, y + 1);
 
       this.isFinished = this.checkStatus();
+
+      if (this.isFinished && this.count === this.levelMax) {
+        this.$emit("end", true);
+        // this.$emit("end", false);
+      }
     },
     toggleCeil(x, y) {
       const currentVal = get(this.arr, `${x}.${y}`);

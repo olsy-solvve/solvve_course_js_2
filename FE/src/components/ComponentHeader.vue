@@ -21,9 +21,9 @@ export default {
           label: "Quit",
           icon: "pi pi-fw pi-power-off",
           to: "/auth",
-        }
-      ]
-    }
+        },
+      ],
+    };
   },
   components: { Menubar, InputText, Chip },
 };
@@ -51,7 +51,7 @@ export default {
     </template>
   </Menubar>
   <!--  <RouterLink to="/auth">gjhgj</RouterLink>-->
-  <router-link to="/auth">Go to Home</router-link>
+  <!-- <router-link to="/auth">Go to Home</router-link> -->
 </template>
 
 <style></style>

@@ -129,9 +129,15 @@
             >
           </div>
           <pButton type="submit" label="Submit" class="mt-2" />
+          <pButton
+            label="Already registered? Login"
+            class="p-button-text"
+            @click="this.$router.push('/auth')"
+          />
         </form>
       </div>
     </div>
+    <h1>{{ error }}</h1>
   </div>
 </template>
 
@@ -154,6 +160,7 @@ export default {
       submitted: false,
       countries: null,
       showMessage: false,
+      error: "",
     };
   },
   countryService: null,
@@ -169,6 +176,9 @@ export default {
       password: {
         required,
       },
+      country: {
+        required,
+      },
       accept: {
         required,
       },
@@ -182,11 +192,22 @@ export default {
   },
   methods: {
     async register() {
-      await service.registerNewUser({
-        name: this.name,
-        password: this.password,
-        email: this.email,
-      });
+      await service
+        .registerNewUser({
+          name: this.name,
+          password: this.password,
+          email: this.email,
+          country: this.country.name,
+        })
+        .then((res) => {
+          if (String(res).split(" ")[0] === "Error:") {
+            this.error = res;
+          } else {
+            let redirectURL = `/profile/${res.data.name}`;
+            this.$router.push(redirectURL);
+          }
+        })
+        .catch((err) => (this.error = err));
     },
     handleSubmit(isFormValid) {
       this.submitted = true;
@@ -224,6 +245,9 @@ export default {
     },
     password(value) {
       this.password = value;
+    },
+    country(value) {
+      this.country = value;
     },
   },
 };
