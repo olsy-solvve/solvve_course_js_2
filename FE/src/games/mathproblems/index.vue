@@ -17,9 +17,6 @@ export default {
   },
 
   methods: {
-    increment() {
-      this.count++;
-    },
     async submitResult() {
       await service
         .updateStat({
@@ -45,13 +42,20 @@ export default {
     nextRound(e) {
       if (+e.target.value === this.operand1 + this.operand2) {
         this.counterCorrect++;
-        this.resultToStat = 1;
-        this.submitResult();
       }
       this.counterAll++;
-      this.resultToStat = 0;
-      this.submitResult();
       this.start();
+    },
+    finish() {
+      if (this.counterAll * (this.counterCorrect / 100) >= 50) {
+        this.resultToStat = 1;
+        // this.$emit("end", true);
+        // this.$emit("end", false);
+      } else {
+        this.resultToStat = 0;
+      }
+      this.submitResult();
+      this.$router.push("/games");
     },
   },
   // eslint-disable-next-line vue/no-reserved-component-names
@@ -60,7 +64,6 @@ export default {
 </script>
 
 <template>
-  <pButton label="Games" @click="this.$router.push('/games')"></pButton>
   <div class="game3Section">
     <Button
       label="StartGame"
@@ -88,6 +91,12 @@ export default {
         {{ item }}
       </Button>
     </div>
+    <Button
+      label="Finish the game"
+      v-if="this.operand1 > 0 && this.operand2 > 0"
+      @click="finish"
+      class="p-button-rounded p-button-success"
+    />
   </div>
 </template>
 
@@ -118,6 +127,7 @@ export default {
 
 .resultSection {
   padding: 20px;
+  margin-bottom: 30px;
   text-align: center;
 }
 

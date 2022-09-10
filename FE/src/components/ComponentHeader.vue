@@ -1,12 +1,21 @@
 <script>
 import Menubar from "primevue/menubar";
 import InputText from "primevue/inputtext";
-import Chip from "primevue/chip";
 
 export default {
   data() {
     return {
       menuItems: [
+        {
+          label: "Home",
+          icon: "pi pi-fw pi-home",
+          to: "/",
+        },
+        {
+          label: "Games",
+          icon: "pi pi-fw pi-tablet",
+          to: "/games",
+        },
         {
           label: "Statistics",
           icon: "pi pi-fw pi-calendar",
@@ -25,15 +34,12 @@ export default {
       ],
     };
   },
-  components: { Menubar, InputText, Chip },
+  components: { Menubar, InputText },
 };
 </script>
 
 <template>
   <Menubar :model="menuItems">
-    <template #start>
-      <Chip label="My Games" icon="pi pi-tablet" />
-    </template>
     <router-link
       :to="item.to"
       custom
