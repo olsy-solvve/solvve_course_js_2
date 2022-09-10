@@ -34,11 +34,9 @@
           v-for="(ceil, j) in row"
           :key="i * count + j"
           class="flex flex-1 mx-2 border-round"
-          :class="ceil ? 'bg-indigo-500' : 'bg-purple-500'"
+          :class="ceil ? 'bg-cyan-600' : 'bg-purple-500'"
           @click="change(i, j)"
-        >
-          {{ ceil }}
-        </div>
+        ></div>
       </div>
     </div>
     <pDialog
@@ -128,6 +126,8 @@ export default {
   height: var(--field-size);
   > div {
     > div {
+      transition: background-color 0.1s;
+      box-shadow: inset 0 0 2rem rgba(255, 255, 255, 0.6);
     }
   }
 }
