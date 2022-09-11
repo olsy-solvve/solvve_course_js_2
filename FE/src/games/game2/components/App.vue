@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import Puzzle from "./Puzzle";
-import NewGame from "./NewGame";
-import Results from "./Results";
+import Puzzle from "./Puzzle.vue";
+import NewGame from "./NewGame.vue";
+import Results from "./Results.vue";
 
 export default {
   name: "App",

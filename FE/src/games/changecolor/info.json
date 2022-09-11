@@ -1,0 +1,5 @@
+{
+    "title": "Lira (by Olsy)",
+    "description": "When you click on a cell, that cell and 4 adjacent ones change their color to the opposite.\n\nIt is necessary to fill the entire field with cells of the same color",
+    "image": "/src/games/changecolor/lira.jpg"
+}

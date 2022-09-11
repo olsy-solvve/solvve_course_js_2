@@ -2,7 +2,6 @@
 import Button from "primevue/button";
 import InlineMessage from "primevue/inlinemessage";
 import Chip from "primevue/chip";
-import service from "../../service/SignService";
 
 export default {
   data() {
@@ -17,14 +16,8 @@ export default {
   },
 
   methods: {
-    async submitResult() {
-      await service
-        .updateStat({
-          result: this.resultToStat,
-        })
-        .then((res) => {
-          console.log(res);
-        });
+    increment() {
+      this.count++;
     },
     start() {
       this.operand1 = Math.floor(Math.random() * 100) + 1;
@@ -42,6 +35,10 @@ export default {
     nextRound(e) {
       if (+e.target.value === this.operand1 + this.operand2) {
         this.counterCorrect++;
+        this.resultToStat = 1;
+        this.$emit("end", 1);
+      } else {
+        this.$emit("end", 0);
       }
       this.counterAll++;
       this.start();
@@ -58,7 +55,6 @@ export default {
       this.$router.push("/games");
     },
   },
-  // eslint-disable-next-line vue/no-reserved-component-names
   components: { Button, InlineMessage, Chip },
 };
 </script>

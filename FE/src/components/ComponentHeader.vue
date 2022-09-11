@@ -17,22 +17,24 @@ export default {
           to: "/games",
         },
         {
-          label: "Statistics",
-          icon: "pi pi-fw pi-calendar",
-          to: "/statistic",
-        },
-        {
-          label: "Nickname",
+          label: "Profile",
           icon: "pi pi-fw pi-user",
-          to: "/profile",
+          to: `/profile/${localStorage.getItem("solvveusername")}`,
         },
         {
-          label: "Quit",
-          icon: "pi pi-fw pi-power-off",
-          to: "/auth",
+          label: "Register",
+          icon: "pi pi-fw pi-user",
+          to: `/register`,
         },
       ],
     };
+  },
+  methods: {
+    logout() {
+      localStorage.removeItem("solvveusername");
+      localStorage.removeItem("token");
+      this.$router.push("/");
+    },
   },
   components: { Menubar, InputText },
 };
@@ -53,11 +55,10 @@ export default {
       >
     </router-link>
     <template #end>
+      <pButton label="Quit" icon="pi pi-tablet" @click="() => logout()" />
       <InputText placeholder="Search" type="text" />
     </template>
   </Menubar>
-  <!--  <RouterLink to="/auth">gjhgj</RouterLink>-->
-  <!-- <router-link to="/auth">Go to Home</router-link> -->
 </template>
 
 <style></style>

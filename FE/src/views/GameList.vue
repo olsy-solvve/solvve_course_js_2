@@ -17,7 +17,7 @@
         <template #title> {{ game.title || "No title" }} </template>
         <template #content>
           <p>
-            {{ game.description || "no description" }}
+            {{ game.description || "Тo description" }}
           </p>
         </template>
         <template #footer>

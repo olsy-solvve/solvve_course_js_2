@@ -5,8 +5,8 @@ const User = new mongoose.Schema({
   password: { type: String, required: true },
   email: { type: String, required: true },
   country: {type: String},
-  wins: {type: Number},
-  loses: {type: Number},
+  wins: {type: Number, default: 0},
+  loses: {type: Number, default: 0},
 });
 
 const UserModel = mongoose.model("User", User);

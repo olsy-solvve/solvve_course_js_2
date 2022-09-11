@@ -19,12 +19,7 @@ router.post(
 );
 
 router.post("/login", (req, res) => {
-  console.log(123);
   controller.signIn(req, res);
-});
-
-router.get("/games", authMiddleware, (req, res) => {
-  controller.getGames(req, res);
 });
 
 router.post("/userInfo", authMiddleware, (req, res) => {
