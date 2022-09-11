@@ -86,7 +86,12 @@ export default {
           </div>
           <div class="col-3">
             <div>
-              <a href="#" class="button" target="_blank">Contact Viber</a>
+              <a
+                href="https://solvve.com/expertise/"
+                class="button"
+                target="_blank"
+                >Contact</a
+              >
             </div>
             <p>Write to me to find out more</p>
           </div>
