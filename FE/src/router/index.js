@@ -7,7 +7,6 @@ import RegisterForm from "../views/RegisterForm.vue";
 import SuccessLogin from "../views/SuccessLogin.vue";
 import PageNotFound from "../views/PageNotFound.vue";
 import ComponentMain from "../components/ComponentMain.vue";
-//import SuccessLogin from "../views/SuccessLogin.vue";
 
 const index = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

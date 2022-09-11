@@ -61,20 +61,26 @@ export default {
           <div class="col-3">
             <p class="footer__social">Our social media profiles:</p>
             <p class="footer__social-icons">
-              <a href="#" target="_blank">
+              <a
+                href="https://www.facebook.com/solvvesoftware/"
+                target="_blank"
+              >
                 <i class="pi pi-facebook" aria-hidden="true"></i>
               </a>
-              <a href="#" target="_blank">
-                <i class="pi pi-twitter" aria-hidden="true"></i>
+              <a href="https://solvve.com/expertise/" target="_blank">
+                <i class="pi pi-globe" aria-hidden="true"></i>
               </a>
-              <a href="#" target="_blank">
+              <a
+                href="https://api.whatsapp.com/send?phone=380991757259"
+                target="_blank"
+              >
                 <i class="pi pi-whatsapp" aria-hidden="true"></i>
               </a>
-              <a href="#" target="_blank">
-                <i class="pi pi-instagram" aria-hidden="true"></i>
-              </a>
-              <a href="#" target="_blank">
-                <i class="pi pi-youtube" aria-hidden="true"></i>
+              <a
+                href="https://www.linkedin.com/company/solvve/"
+                target="_blank"
+              >
+                <i class="pi pi-linkedin" aria-hidden="true"></i>
               </a>
             </p>
           </div>
@@ -105,8 +111,8 @@ export default {
 }
 
 .footer p {
-  margin-top: 25px;
-  margin-bottom: 15px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 p.footer__name {
