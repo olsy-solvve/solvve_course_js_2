@@ -19,7 +19,6 @@ export default {
     increment() {
       this.count++;
     },
-    async submitResult() {},
     start() {
       this.operand1 = Math.floor(Math.random() * 100) + 1;
       this.operand2 = Math.floor(Math.random() * 100) + 1;
@@ -38,14 +37,14 @@ export default {
         this.counterCorrect++;
         this.resultToStat = 1;
         this.$emit("end", 1);
+      } else {
+        this.$emit("end", 0);
       }
       this.counterAll++;
       this.resultToStat = 0;
-      this.$emit("end", 0);
       this.start();
     },
   },
-  // eslint-disable-next-line vue/no-reserved-component-names
   components: { Button, InlineMessage, Chip },
 };
 </script>

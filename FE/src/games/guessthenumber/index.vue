@@ -81,7 +81,6 @@ export default {
         this.started = false;
       }
       this.submitResult();
-      console.log(this.result);
     },
     async submitResult() {
       this.$emit("end", this.result);

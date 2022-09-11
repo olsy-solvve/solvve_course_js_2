@@ -72,18 +72,6 @@
               }}</small
             >
           </div>
-          <div class="field-checkbox">
-            <pCheckbox
-              id="accept"
-              name="accept"
-              value="Accept"
-              v-model="v$.accept.$model"
-              :class="{ 'p-invalid': v$.accept.$invalid && submitted }"
-            />
-            <label :class="{ 'p-error': v$.accept.$invalid && submitted }"
-              >A new user</label
-            >
-          </div>
           <pButton type="submit" label="Submit" class="mt-2" />
           <pButton
             label="Registration"
@@ -122,9 +110,6 @@ export default {
         email,
       },
       password: {
-        required,
-      },
-      accept: {
         required,
       },
     };
