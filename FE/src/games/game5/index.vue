@@ -64,7 +64,7 @@ export default {
       isFinished: false,
       isOpenInfo: true,
       gameIsStarted: false,
-      levelMax: 6
+      levelMax: 6,
     };
   },
   methods: {

@@ -101,7 +101,7 @@ export default {
 
 .footer p {
   margin-top: 0px;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
 }
 
 p.footer__name {

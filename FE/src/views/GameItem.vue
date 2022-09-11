@@ -20,7 +20,7 @@ export default {
 
       console.log(id, isWinner);
 
-       // await service
+      // await service
       //   .updateStat({
       //     result: this.result,
       //   })
