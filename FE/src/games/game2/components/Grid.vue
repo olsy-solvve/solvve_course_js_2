@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Cell from "./Cell";
+import Cell from "./Cell.vue";
 
 export default {
   name: "Grid",

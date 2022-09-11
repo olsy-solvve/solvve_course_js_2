@@ -2,7 +2,7 @@
   <div class="form-demo">
     <div class="flex justify-content-center">
       <div class="card">
-        <h2 class="text-center">Registration</h2>
+        <h1 class="text-center">Registration</h1>
         <form @submit.prevent="handleSubmit(!v$.$invalid)" class="p-fluid">
           <div class="field">
             <div class="p-float-label">
@@ -11,9 +11,7 @@
                 v-model="v$.name.$model"
                 :class="{ 'p-invalid': v$.name.$invalid && submitted }"
               />
-              <label
-                for="name"
-                :class="{ 'p-error': v$.name.$invalid && submitted }"
+              <label :class="{ 'p-error': v$.name.$invalid && submitted }"
                 >Name*</label
               >
             </div>
@@ -34,9 +32,7 @@
                 :class="{ 'p-invalid': v$.email.$invalid && submitted }"
                 aria-describedby="email-error"
               />
-              <label
-                for="email"
-                :class="{ 'p-error': v$.email.$invalid && submitted }"
+              <label :class="{ 'p-error': v$.email.$invalid && submitted }"
                 >Email*</label
               >
             </div>
@@ -80,9 +76,7 @@
                   </ul>
                 </template>
               </pPassword>
-              <label
-                for="password"
-                :class="{ 'p-error': v$.password.$invalid && submitted }"
+              <label :class="{ 'p-error': v$.password.$invalid && submitted }"
                 >Password*</label
               >
             </div>
@@ -100,7 +94,7 @@
           <div class="field">
             <div class="p-float-label">
               <pCalendar id="date" v-model="date" :showIcon="true" />
-              <label for="date">Birthday</label>
+              <label>Birthday</label>
             </div>
           </div>
           <div class="field">
@@ -111,7 +105,7 @@
                 :options="countries"
                 optionLabel="name"
               />
-              <label for="country">Country</label>
+              <label>Country</label>
             </div>
           </div>
           <div class="field-checkbox">
@@ -122,9 +116,7 @@
               v-model="v$.accept.$model"
               :class="{ 'p-invalid': v$.accept.$invalid && submitted }"
             />
-            <label
-              for="accept"
-              :class="{ 'p-error': v$.accept.$invalid && submitted }"
+            <label :class="{ 'p-error': v$.accept.$invalid && submitted }"
               >I agree to the terms and conditions</label
             >
           </div>
@@ -185,6 +177,11 @@ export default {
     };
   },
   created() {
+    if (localStorage.getItem("solvveusername")) {
+      if (String(localStorage.getItem("solvveusername")).length > 0) {
+        this.$router.push(`/profile/${localStorage.getItem("solvveusername")}`);
+      }
+    }
     this.countryService = new CountryService();
   },
   mounted() {
@@ -257,6 +254,8 @@ export default {
 .form-demo {
   .card {
     min-width: 450px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 
     form {
       margin-top: 2rem;

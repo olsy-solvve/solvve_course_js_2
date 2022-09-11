@@ -1,23 +1,25 @@
 <template>
-  <div v-if="started">
-    <form @submit.prevent="submit">
-      <div>
-        <label>Enter a letter</label>
-        <input v-model="letter" />
-      </div>
-      <pButton type="submit">check</pButton>
-    </form>
-    <p>{{ notice }}</p>
-    <h2>
-      <p>{{ message }}</p>
-    </h2>
-  </div>
-  <div v-else>
+  <div style="text-align: center">
     <h1>Guess the word!</h1>
-    <section>
-      <pButton type="button" @click="start">Start</pButton>
-    </section>
-    <p>{{ notice }}</p>
+    <div v-if="started">
+      <form @submit.prevent="submit">
+        <div>
+          <label>Enter a letter</label>
+          <input v-model="letter" />
+        </div>
+        <pButton type="submit">check</pButton>
+      </form>
+      <p>{{ notice }}</p>
+      <h2>
+        <p>{{ message }}</p>
+      </h2>
+    </div>
+    <div v-else>
+      <section>
+        <pButton type="button" @click="start">Start</pButton>
+      </section>
+      <p>{{ notice }}</p>
+    </div>
   </div>
 </template>
 <script>
@@ -54,7 +56,7 @@ export default {
     start() {
       console.log(this.words);
       this.word = this.words[Math.floor(Math.random() * this.words.length)];
-      for (let i = 0; i < this.word.length; i++) {
+      for (var i = 0; i < this.word.length; i++) {
         this.answerArray[i] = "*";
       }
       this.message = this.answerArray.join(" ");
@@ -81,9 +83,13 @@ export default {
         }
       } else {
         this.notice = "Excellent! The word " + this.word + " was conceived";
+        this.submitResult();
         this.started = false;
       }
       this.message = this.answerArray.join(" ");
+    },
+    submitResult() {
+      this.$emit("end", 1);
     },
   },
 };

@@ -64,7 +64,7 @@ export default {
       isFinished: false,
       isOpenInfo: true,
       gameIsStarted: false,
-      levelMax: 6
+      levelMax: 6,
     };
   },
   methods: {
@@ -101,8 +101,7 @@ export default {
       this.isFinished = this.checkStatus();
 
       if (this.isFinished && this.count === this.levelMax) {
-        this.$emit("end", true);
-        // this.$emit("end", false);
+        this.$emit("end", 1);
       }
     },
     toggleCeil(x, y) {

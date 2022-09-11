@@ -8,18 +8,6 @@
       </pButton>
     </div>
     <div class="col-12">
-      <ul class="list-none p-0 m-0 flex font-medium mb-3">
-        <li>
-          <pButton @click="this.$router.push('/games')" label="Games"></pButton>
-          <pButton @click="() => logout()" label="Logout"> </pButton>
-        </li>
-        <li>
-          <i class="pi pi-angle-right text-500 line-height-3"></i>
-        </li>
-        <li>
-          <span class="text-900 line-height-3">Profile</span>
-        </li>
-      </ul>
       <div
         class="w-full flex align-items-start flex-column lg:justify-content-between lg:flex-row"
       >

@@ -13,10 +13,7 @@
                 :class="{ 'p-invalid': v$.email.$invalid && submitted }"
                 aria-describedby="email-error"
               />
-              <label
-                for="email"
-                :class="{ 'p-error': v$.email.$invalid && submitted }"
-              >
+              <label :class="{ 'p-error': v$.email.$invalid && submitted }">
                 Email*
               </label>
             </div>
@@ -60,9 +57,7 @@
                   </ul>
                 </template>
               </pPassword>
-              <label
-                for="password"
-                :class="{ 'p-error': v$.password.$invalid && submitted }"
+              <label :class="{ 'p-error': v$.password.$invalid && submitted }"
                 >Password*</label
               >
             </div>
@@ -85,9 +80,7 @@
               v-model="v$.accept.$model"
               :class="{ 'p-invalid': v$.accept.$invalid && submitted }"
             />
-            <label
-              for="accept"
-              :class="{ 'p-error': v$.accept.$invalid && submitted }"
+            <label :class="{ 'p-error': v$.accept.$invalid && submitted }"
               >A new user</label
             >
           </div>

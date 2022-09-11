@@ -2,7 +2,6 @@
 import Button from "primevue/button";
 import InlineMessage from "primevue/inlinemessage";
 import Chip from "primevue/chip";
-import service from "../../service/SignService";
 
 export default {
   data() {
@@ -20,15 +19,7 @@ export default {
     increment() {
       this.count++;
     },
-    async submitResult() {
-      await service
-        .updateStat({
-          result: this.resultToStat,
-        })
-        .then((res) => {
-          console.log(res);
-        });
-    },
+    async submitResult() {},
     start() {
       this.operand1 = Math.floor(Math.random() * 100) + 1;
       this.operand2 = Math.floor(Math.random() * 100) + 1;
@@ -46,11 +37,11 @@ export default {
       if (+e.target.value === this.operand1 + this.operand2) {
         this.counterCorrect++;
         this.resultToStat = 1;
-        this.submitResult();
+        this.$emit("end", 1);
       }
       this.counterAll++;
       this.resultToStat = 0;
-      this.submitResult();
+      this.$emit("end", 0);
       this.start();
     },
   },
@@ -60,7 +51,6 @@ export default {
 </script>
 
 <template>
-  <pButton label="Games" @click="this.$router.push('/games')"></pButton>
   <div class="game3Section">
     <Button
       label="StartGame"
