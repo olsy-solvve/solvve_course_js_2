@@ -1,5 +1,5 @@
 {
     "title": "Solve math problems",
-    "description": "You need to solve math problems.",
+    "description": "Simple arithmetical exercises, that user should do. User can see how many exercises he/she've done and how many was correct. If there are more than 50% correct answers, the game is passed.",
     "image": "https://d2kspx2x29brck.cloudfront.net/1200x675/filters:format(webp)/img/iea/qrwBXRzWG5/simplemathematics.jpg"
 }

@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import NewGame from "./NewGame";
+import NewGame from "./NewGame.vue";
 
 export default {
   name: "Results",

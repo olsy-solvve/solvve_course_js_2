@@ -101,8 +101,7 @@ export default {
       this.isFinished = this.checkStatus();
 
       if (this.isFinished && this.count === this.levelMax) {
-        this.$emit("end", true);
-        // this.$emit("end", false);
+        this.$emit("end", 1);
       }
     },
     toggleCeil(x, y) {

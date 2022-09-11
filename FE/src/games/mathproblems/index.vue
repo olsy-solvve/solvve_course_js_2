@@ -2,7 +2,6 @@
 import Button from "primevue/button";
 import InlineMessage from "primevue/inlinemessage";
 import Chip from "primevue/chip";
-import service from "../../service/SignService";
 
 export default {
   data() {
@@ -19,15 +18,6 @@ export default {
   methods: {
     increment() {
       this.count++;
-    },
-    async submitResult() {
-      await service
-        .updateStat({
-          result: this.resultToStat,
-        })
-        .then((res) => {
-          console.log(res);
-        });
     },
     start() {
       this.operand1 = Math.floor(Math.random() * 100) + 1;
@@ -46,21 +36,30 @@ export default {
       if (+e.target.value === this.operand1 + this.operand2) {
         this.counterCorrect++;
         this.resultToStat = 1;
-        this.submitResult();
+        this.$emit("end", 1);
+      } else {
+        this.$emit("end", 0);
       }
       this.counterAll++;
-      this.resultToStat = 0;
-      this.submitResult();
       this.start();
     },
+    finish() {
+      if (this.counterAll * (this.counterCorrect / 100) >= 50) {
+        this.resultToStat = 1;
+        // this.$emit("end", true);
+      } else {
+        this.resultToStat = 0;
+        // this.$emit("end", false);
+      }
+      this.submitResult();
+      this.$router.push("/games");
+    },
   },
-  // eslint-disable-next-line vue/no-reserved-component-names
   components: { Button, InlineMessage, Chip },
 };
 </script>
 
 <template>
-  <pButton label="Games" @click="this.$router.push('/games')"></pButton>
   <div class="game3Section">
     <Button
       label="StartGame"
@@ -88,6 +87,12 @@ export default {
         {{ item }}
       </Button>
     </div>
+    <Button
+      label="Finish the game"
+      v-if="this.operand1 > 0 && this.operand2 > 0"
+      @click="finish"
+      class="p-button-rounded p-button-success"
+    />
   </div>
 </template>
 
@@ -118,6 +123,7 @@ export default {
 
 .resultSection {
   padding: 20px;
+  margin-bottom: 30px;
   text-align: center;
 }
 

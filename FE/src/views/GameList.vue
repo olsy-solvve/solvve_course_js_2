@@ -1,9 +1,6 @@
 <template>
+  <br />
   <div class="text-4xl text-primary">Choose your game</div>
-  <div>
-    <pButton label="Profile" @click="this.$router.push(`/profile/${username}`)">
-    </pButton>
-  </div>
   <br />
   <div class="grid">
     <div v-for="(game, path) in games" :key="path" class="col-4">
@@ -20,7 +17,7 @@
         <template #title> {{ game.title || "No title" }} </template>
         <template #content>
           <p>
-            {{ game.description || "no description" }}
+            {{ game.description || "Тo description" }}
           </p>
         </template>
         <template #footer>
@@ -38,8 +35,7 @@ export default {
   data() {
     return {
       games: components,
-      defaultImage:
-        "https://www.primefaces.org/wp-content/uploads/2020/02/primefacesorg-primevue-2020.png",
+      defaultImage: "https://img.kpopmap.com/2017/12/seola-wjsn-birthday.jpg",
       username: "",
     };
   },
@@ -66,4 +62,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+#co {
+  max-height: 40px;
+}
+</style>

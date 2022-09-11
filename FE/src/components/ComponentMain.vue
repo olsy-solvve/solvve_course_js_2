@@ -20,13 +20,12 @@ export default {};
             and you will stay with us for a long time.
           </p>
 
-          <router-link to="/games">
-            <pButton
-              label="Let's start"
-              type="button"
-              class="mr-3 p-button-raised"
-            ></pButton>
-          </router-link>
+          <pButton
+            label="Let's start"
+            type="button"
+            class="mr-3 p-button-raised"
+            @click="this.$router.push('/games')"
+          ></pButton>
         </section>
       </div>
       <div class="col-12 md:col-6 overflow-hidden">

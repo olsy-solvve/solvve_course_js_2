@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import Status from "./Status";
-import Grid from "./Grid";
+import Status from "./Status.vue";
+import Grid from "./Grid.vue";
 
 export default {
   name: "Puzzle",

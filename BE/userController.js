@@ -3,7 +3,6 @@ import bcrypt from "bcryptjs";
 import { validationResult } from "express-validator";
 import jwt from "jsonwebtoken";
 import tokenConfig from "./tokenConfig.js";
-import user from "./models/user.js";
 
 const generateToken = (name) => {
   const payLoad = {

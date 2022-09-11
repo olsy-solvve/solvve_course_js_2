@@ -1,39 +1,47 @@
 <script>
 import Menubar from "primevue/menubar";
 import InputText from "primevue/inputtext";
-import Chip from "primevue/chip";
 
 export default {
   data() {
     return {
       menuItems: [
         {
-          label: "Statistics",
-          icon: "pi pi-fw pi-calendar",
-          to: "/statistic",
+          label: "Home",
+          icon: "pi pi-fw pi-home",
+          to: "/",
         },
         {
-          label: "Nickname",
+          label: "Games",
+          icon: "pi pi-fw pi-tablet",
+          to: "/games",
+        },
+        {
+          label: "Profile",
           icon: "pi pi-fw pi-user",
-          to: "/profile",
+          to: `/profile/${localStorage.getItem("solvveusername")}`,
         },
         {
-          label: "Quit",
-          icon: "pi pi-fw pi-power-off",
-          to: "/auth",
+          label: "Register",
+          icon: "pi pi-fw pi-user",
+          to: `/register`,
         },
       ],
     };
   },
-  components: { Menubar, InputText, Chip },
+  methods: {
+    logout() {
+      localStorage.removeItem("solvveusername");
+      localStorage.removeItem("token");
+      this.$router.push("/");
+    },
+  },
+  components: { Menubar, InputText },
 };
 </script>
 
 <template>
   <Menubar :model="menuItems">
-    <template #start>
-      <Chip label="My Games" icon="pi pi-tablet" />
-    </template>
     <router-link
       :to="item.to"
       custom
@@ -47,11 +55,10 @@ export default {
       >
     </router-link>
     <template #end>
+      <pButton label="Quit" icon="pi pi-tablet" @click="() => logout()" />
       <InputText placeholder="Search" type="text" />
     </template>
   </Menubar>
-  <!--  <RouterLink to="/auth">gjhgj</RouterLink>-->
-  <!-- <router-link to="/auth">Go to Home</router-link> -->
 </template>
 
 <style></style>
