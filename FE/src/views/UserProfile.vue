@@ -1,13 +1,21 @@
 <template>
-  <div>
-    <div v-if="String(error).length > 0">
+  <div class="container">
+    <div class="background-size: auto;">
+      <ul class="list-none p-0 m-0 flex font-medium mb-3">
+        <li>
+          <i class="pi pi-angle-right text-500 line-height-3"></i>
+        </li>
+        <div v-if="String(error).length > 0">
       <h1>{{ error }}</h1>
       <br />
       <pButton @click="this.$router.push('/auth')" label="Auth"> </pButton>
       <pButton @click="this.$router.push('/register')" label="Register">
       </pButton>
-    </div>
-    <div class="col-12">
+      </div>
+        <li>
+          <span class="text-900 line-height-3">Profile</span>
+        </li>
+      </ul>
       <div
         class="w-full flex align-items-start flex-column lg:justify-content-between lg:flex-row"
       >

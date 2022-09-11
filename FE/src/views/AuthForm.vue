@@ -2,7 +2,7 @@
   <div class="form-demo">
     <div class="flex justify-content-center">
       <div class="card">
-        <h2 class="text-center">Authorization</h2>
+        <h1 class="text-center">Welcome</h1>
         <form @submit.prevent="handleSubmit(!v$.$invalid)" class="p-fluid">
           <div class="field">
             <div class="p-float-label p-input-icon-right">

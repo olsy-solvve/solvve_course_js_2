@@ -41,8 +41,18 @@ export default {
         this.$emit("end", 0);
       }
       this.counterAll++;
-      this.resultToStat = 0;
       this.start();
+    },
+    finish() {
+      if (this.counterAll * (this.counterCorrect / 100) >= 50) {
+        this.resultToStat = 1;
+        // this.$emit("end", true);
+      } else {
+        this.resultToStat = 0;
+        // this.$emit("end", false);
+      }
+      this.submitResult();
+      this.$router.push("/games");
     },
   },
   components: { Button, InlineMessage, Chip },
@@ -77,6 +87,12 @@ export default {
         {{ item }}
       </Button>
     </div>
+    <Button
+      label="Finish the game"
+      v-if="this.operand1 > 0 && this.operand2 > 0"
+      @click="finish"
+      class="p-button-rounded p-button-success"
+    />
   </div>
 </template>
 
@@ -107,6 +123,7 @@ export default {
 
 .resultSection {
   padding: 20px;
+  margin-bottom: 30px;
   text-align: center;
 }
 
