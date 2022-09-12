@@ -93,7 +93,7 @@ export default {
                 >Contact</a
               >
             </div>
-            <p>Write to me to find out more</p>
+            <p>Write to us to find out more</p>
           </div>
         </div>
       </div>
