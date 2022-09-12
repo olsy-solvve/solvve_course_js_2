@@ -62,15 +62,21 @@
             <ul class="list-none p-0 m-0 flex-grow-1">
               <li class="flex align-items-center mb-3">
                 <i class="pi pi-check-circle text-blue-500 mr-2"></i>
-                <span>Name: {{ userName }}</span>
+                <span class="ml-2 font-medium text-600"
+                  >Name: {{ userName }}</span
+                >
               </li>
               <li class="flex align-items-center mb-3">
                 <i class="pi pi-check-circle text-blue-500 mr-2"></i>
-                <span>Country: {{ country }}</span>
+                <span class="ml-2 font-medium text-600"
+                  >Country: {{ country }}</span
+                >
               </li>
               <li class="flex align-items-center mb-3">
                 <i class="pi pi-check-circle text-blue-500 mr-2"></i>
-                <span>Email: {{ email }}</span>
+                <span class="ml-2 font-medium text-600"
+                  >Email: {{ email }}</span
+                >
               </li>
             </ul>
           </div>
