@@ -34,12 +34,6 @@ export default {
               </a>
             </p>
             <p>
-              <a href="https://github.com/olsy-solvve" target="_blank">
-                Oleksandr Sypalo
-                <i class="pi pi-github" aria-hidden="true"></i>
-              </a>
-            </p>
-            <p>
               <a href="https://github.com/olga-dudarieva" target="_blank">
                 Olha Dudareva
                 <i class="pi pi-github" aria-hidden="true"></i>
